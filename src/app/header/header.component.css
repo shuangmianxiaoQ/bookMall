@@ -1,0 +1,59 @@
+.main {
+	width: 100%;
+	background-color: #FBFBFB;
+}
+
+#header-top {
+	padding: 15px 120px 40px 200px ;
+}
+
+.logo {
+	float: left;
+}
+
+#top-input {
+	float: left;
+	margin-left: 50px;
+	margin-top: 7px;
+}
+
+.input-box {
+	float: left;
+	width: 450px;
+	height: 30px;
+	box-sizing: border-box;
+	border: 1px solid #DCD6D2;
+}
+
+#txtSearch {
+	border: 0;
+	outline: none;
+	width: 450px;
+	height: 30px;
+	box-sizing: border-box;
+	padding-left: 10px;
+}
+
+#top-input>a {
+	float: left;
+	width: 50px;
+	height: 30px;
+	font-size: 14px;
+	color: #fff;
+	text-align: center;
+	letter-spacing: 2px;
+	line-height: 30px;
+	background-color: #b1b1b1;
+}
+
+#list {
+	float: right;
+	margin-top: 15px;
+}
+
+#list li {
+	float: left;
+	font-size: 13px;
+	display: inline-block;
+	padding-left: 15px;
+}

@@ -1,1 +1,44 @@
-/* You can add global styles to this file, and also import other style files */
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+dl,
+dd,
+ul,
+ol,
+pre {
+    margin: 0;
+    padding: 0;
+}
+
+img {
+    vertical-align: bottom;
+}
+
+li {
+    list-style: none;
+}
+
+body {
+    font: 12px simhei, Arial, Helvetica, sans-serif;
+    color: #565A5F;
+}
+
+a {
+    color: #565A5F;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #222;
+}
+
+.clear:after {
+    content: "";
+    display: block;
+    clear: both;
+}
