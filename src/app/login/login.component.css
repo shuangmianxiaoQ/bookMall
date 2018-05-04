@@ -1,7 +1,6 @@
 .main,
 .main-content {
     width: 100%;
-    background-color: #FBFBFB;
 }
 
 #header-top {
@@ -13,7 +12,7 @@
 }
 
 .main-content {
-	padding: 60px 0;
+	padding: 60px 0 120px 0;
 }
 
 #content-box {
@@ -56,7 +55,7 @@
 	width: 240px;
 	font-size: 14px;
 	padding: 8px 16px;
-	margin-top: 12px;
+	margin: 12px 12px 0 0;
 	border: 1px solid #c9c9c9;
 	border-radius: 3px;
 }
@@ -73,4 +72,16 @@
 	margin: 18px 0 0 100px;
 	letter-spacing: 1px;
 	cursor: pointer;
+}
+
+.msg {
+	font-size: 13px;
+	color: red;
+}
+
+.txt>.msg {
+	margin: 0;
+	padding-top: 4px;
+	font-size: 14px;
+	font-weight: bolder;
 }
