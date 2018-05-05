@@ -6,14 +6,14 @@ import {RegisterComponent} from './register/register.component';
 import {HeaderComponent} from './header/header.component';
 import {IndexComponent} from './index/index.component';
 import {NotFoundComponent} from './not-found/not-found.component';
+import {SuccessModalComponent} from './register/success-modal/success-modal.component';
 
 const routes : Routes = [
   {
     path: '',
     redirectTo: '/index',
     pathMatch: 'full'
-  },
-  {
+  }, {
     path: 'login',
     component: LoginComponent
   }, {
@@ -22,6 +22,9 @@ const routes : Routes = [
   }, {
     path: 'header',
     component: HeaderComponent
+  }, {
+    path: 'successModal',
+    component: SuccessModalComponent
   }, {
     path: 'index',
     component: IndexComponent

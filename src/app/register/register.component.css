@@ -83,3 +83,15 @@
 .success-msg {
 	color: green;
 }
+
+.tip {
+	color: #787878;
+	margin: 4px 0 0 88px;
+}
+
+.txt>.msg {
+	margin: 0;
+	padding-top: 4px;
+	font-size: 14px;
+	font-weight: bolder;
+}

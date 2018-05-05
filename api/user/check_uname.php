@@ -11,8 +11,12 @@
   } else {
     $row = mysqli_fetch_assoc($result);
     if(!$row) {
-      echo('{"code": 200, "msg": "该用户名可用"}');
+      if(preg_match('/^[A-Za-z0-9\x{4e00}-\x{9fa5}]{4,20}$/u', $uname)) {
+        echo('{"code": 200, "msg": "该用户名可用"}');
+      } else {
+        echo('{"code": 201, "msg": "该用户名不可用"}');
+      }
     } else {
-      echo('{"code": 201, "msg": "该用户名已存在"}');
+      echo('{"code": 202, "msg": "该用户名已存在"}');
     }
   }
