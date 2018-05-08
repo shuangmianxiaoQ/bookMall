@@ -6,7 +6,7 @@ import {RegisterComponent} from './register/register.component';
 import {HeaderComponent} from './header/header.component';
 import {IndexComponent} from './index/index.component';
 import {NotFoundComponent} from './not-found/not-found.component';
-import {SuccessModalComponent} from './register/success-modal/success-modal.component';
+import {CarouselComponent} from './index/carousel/carousel.component';
 
 const routes : Routes = [
   {
@@ -23,8 +23,8 @@ const routes : Routes = [
     path: 'header',
     component: HeaderComponent
   }, {
-    path: 'successModal',
-    component: SuccessModalComponent
+    path: 'carousel',
+    component: CarouselComponent
   }, {
     path: 'index',
     component: IndexComponent

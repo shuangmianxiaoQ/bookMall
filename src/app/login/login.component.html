@@ -14,7 +14,7 @@
             <a routerLink="/register">去注册</a>
           </span>
         </div>
-        <div class="form-group">
+        <div class="form-field">
           <label for="uname">用户名：</label>
           <input type="text" id="uname"
             [(ngModel)]="uname" name="uname"
@@ -22,7 +22,7 @@
             (keyup)="onKeyName()" />
           <span class="msg" [hidden]="isShowNameError">请输入正确的用户名</span>
         </div>
-        <div class="form-group">
+        <div class="form-field">
           <label for="upwd">密码：</label>
           <input type="password" id="upwd"
             [(ngModel)]="upwd" name="upwd"
@@ -30,11 +30,11 @@
             (keyup)="onKeyPwd()" />
           <span class="msg" [hidden]="isShowPwdError">请输入密码</span>
         </div>
-        <div class="form-group loginError">
+        <div class="form-field loginError">
           <label></label>
           
         </div>
-        <div class="form-group">
+        <div class="form-field">
           <input type="button" value="点击登录" id="btn-register" (click)="userLogin()">
         </div>
       </form>

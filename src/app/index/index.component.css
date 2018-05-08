@@ -1,0 +1,16 @@
+#wrapper {
+  width: 80%;
+  margin: 0 auto;
+  background-color: #fff;
+}
+
+.carousel {
+}
+
+.content {
+  min-height: 500px;
+}
+
+.main {
+  min-height: 500px;
+}
