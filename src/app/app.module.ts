@@ -14,6 +14,12 @@ import {IndexComponent} from './index/index.component';
 import {NotFoundComponent} from './not-found/not-found.component';
 import {SuccessModalComponent} from './register/success-modal/success-modal.component';
 import {CarouselComponent} from './index/carousel/carousel.component';
+import {CategoryComponent} from './index/category/category.component';
+import {RankComponent} from './index/rank/rank.component';
+import {NewArrivalComponent} from './index/new-arrival/new-arrival.component';
+import { TopSaleComponent } from './index/top-sale/top-sale.component';
+import { TimestampPipe } from './timestamp.pipe';
+import { RecommendedComponent } from './index/recommended/recommended.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +30,13 @@ import {CarouselComponent} from './index/carousel/carousel.component';
     IndexComponent,
     NotFoundComponent,
     SuccessModalComponent,
-    CarouselComponent
+    CarouselComponent,
+    CategoryComponent,
+    RankComponent,
+    NewArrivalComponent,
+    TopSaleComponent,
+    TimestampPipe,
+    RecommendedComponent
   ],
   imports: [
     BrowserModule,

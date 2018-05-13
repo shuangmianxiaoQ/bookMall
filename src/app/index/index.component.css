@@ -4,13 +4,18 @@
   background-color: #fff;
 }
 
-.carousel {
+.content {
+  margin: 0;
 }
 
-.content {
-  min-height: 500px;
+.category {
+  padding: 0;
 }
 
 .main {
-  min-height: 500px;
+  
+}
+
+.aside {
+  padding: 0;
 }

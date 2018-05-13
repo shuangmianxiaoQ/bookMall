@@ -1,0 +1,55 @@
+h5 {
+  color: #000;
+  padding: 12px 0 5px 0;
+  font-family: '宋体';
+  font-weight: bold;
+  letter-spacing: 2px;
+  border-bottom: 1px solid #ccc;
+  text-indent: 4px;
+}
+
+img {
+  vertical-align: middle;
+}
+
+.row {
+  margin: 0;
+}
+
+.col-md-4 {
+  margin-top: 20px;
+  padding: 0;
+  position: relative;
+}
+
+.pic, .txt {
+  display: inline-block;
+}
+
+.txt {
+  position: absolute;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.name {
+  margin-top: 18px;
+}
+
+.name>a {
+  color: #404040;
+  font-size: 15px;
+}
+
+.name>a:hover {
+  color: #fa2846;
+}
+
+.author, .publishing, .publish_time, .price {
+  color: #aaa;
+  margin-top: 8px;
+}
+
+.price {
+  color: #fa2846;
+}

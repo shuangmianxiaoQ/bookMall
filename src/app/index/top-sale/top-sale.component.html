@@ -1,0 +1,19 @@
+<h5>热销书籍</h5>
+<div class="row">
+  <div class="col-md-4" *ngFor="let topSaleItem of topSaleItems">
+    <div class="pic">
+      <a href="#">
+        <img [src]="'assets/'+topSaleItem.pic" [title]="topSaleItem.title">
+      </a>
+    </div>
+    <div class="txt">
+      <p class="name">
+        <a href="#" [title]="topSaleItem.title">{{topSaleItem.gname}}</a>
+      </p>
+      <p class="author">{{topSaleItem.author}}</p>
+      <p class="publishing">{{topSaleItem.publishing}}</p>
+      <p class="publish_time">{{topSaleItem.publish_time | timestamp | date:'yyyy-MM'}}</p>
+      <p class="price">{{topSaleItem.price | currency:'CNY':'symbol-narrow'}}</p>
+    </div>
+  </div>
+</div>

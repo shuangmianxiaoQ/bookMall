@@ -1,0 +1,40 @@
+h5 {
+  color: #000;
+  padding: 12px 0 5px 0;
+  font-family: '宋体';
+  font-weight: bold;
+  letter-spacing: 2px;
+  border-bottom: 1px solid #ccc;
+  text-indent: 4px;
+}
+
+.col-md-3 {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.col-md-3>img {
+  width: 80%;
+}
+
+.name {
+  margin-top: 10px;
+}
+
+.name>a {
+  color: #404040;
+}
+
+.name>a:hover {
+  color: #fa2846;
+}
+
+.author {
+  color: #aaa;
+  margin-top: 5px;
+}
+
+.price {
+  color: #f00;
+  margin-top: 5px;
+}

@@ -1,15 +1,23 @@
 <app-header></app-header>
 <div id="wrapper">
-  <div class="carousel">
-    <app-carousel></app-carousel>
-  </div>
   <div class="content row">
-    <div class="main col-md-9">
-      <div id="new-book">新书推荐</div>
-      <div id="good-book">好书推荐</div>
+    <div class="col-md-2 category">
+      <app-category [categoryItems]="categoryItems"></app-category>
     </div>
-    <div class="aside col-md-3">
-      <div id="ranking">图书排行榜</div>
+    <div class="col-md-8 main">
+      <app-carousel [carouselItems]="carouselItems"></app-carousel>
+      <app-new-arrival [newArrivalItems]="newArrivalItems"></app-new-arrival>
+    </div>
+    <div class="col-md-2 aside">
+      <app-rank></app-rank>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-10">
+      <app-top-sale [topSaleItems]="topSaleItems"></app-top-sale>
+    </div>
+    <div class="col-md-10">
+      <app-recommended></app-recommended>
     </div>
   </div>
 </div>

@@ -1,15 +1,33 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpService } from '../http.service';
 
 @Component({
   selector: 'app-index',
   templateUrl: './index.component.html',
-  styleUrls: ['./index.component.css']
+  styleUrls: ['./index.component.css'],
+  providers: [HttpService]
 })
 export class IndexComponent implements OnInit {
+  indexUrl: string = `${this.http.baseUrl}index/index.php`;
+  carouselItems: string[] = [];
+  categoryItems: string[] = [];
+  newArrivalItems: string[] = [];
+  topSaleItems: string[] = [];
 
-  constructor() { }
+  constructor(private http: HttpService) { }
 
   ngOnInit() {
+    this.getIndexData();
   }
 
+  getIndexData() {
+    this.http.sendGetMethod(this.indexUrl, {})
+      .subscribe((data: any) => {
+        console.log(data);
+        this.carouselItems = data['carouselItems'];
+        this.categoryItems = data['categoryItems'];
+        this.newArrivalItems = data['newArrivalItems'];
+        this.topSaleItems = data['topSaleItems'];
+      })
+  }
 }

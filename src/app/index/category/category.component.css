@@ -1,0 +1,40 @@
+h5 {
+  text-indent: 20px;
+  background-color: #4DA493;
+  color: #fff;
+  padding: 10px 0;
+  font-family: '宋体';
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+ul li {
+  font-size: 15px;
+  line-height: 20px;
+  letter-spacing: 2px;
+  padding: 10px 20px;
+  border-bottom: 1px dotted #487A6f;
+  cursor: pointer;
+  position: relative;
+}
+
+ul {
+  border: 1px solid #4DA493;
+}
+
+ul li:hover {
+  font-weight: bold;
+  color: #4DA493;
+}
+
+ul li:hover:after {
+  content: ">";
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-weight: bold;
+}
+
+ul>li>a {
+  color: #4DA493;
+}
