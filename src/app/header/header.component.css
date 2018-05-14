@@ -14,6 +14,7 @@
 #top-input {
 	float: left;
 	margin: 12px 0 0 50px;
+	position: relative;
 }
 
 .input-box {
@@ -56,4 +57,13 @@
 	font-size: 13px;
 	display: inline-block;
 	padding-left: 15px;
+}
+
+.suggest_key {
+	width: 450px;
+	background-color: #fff;
+	position: absolute;
+	top: 30px;
+	padding: 8px;
+	border: 1px solid #ccc;
 }

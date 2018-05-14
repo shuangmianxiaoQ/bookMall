@@ -32,5 +32,16 @@
   $result = mysqli_query($conn, $sql);
   $output['recommendedItems'] = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
+
+  // 获取新书热卖榜
+  $sql = "SELECT gname,title,author,price,pic,href FROM bm_index_goods WHERE new_rank>0 ORDER BY new_rank LIMIT 8";
+  $result = mysqli_query($conn, $sql);
+  $output['newRankItems'] = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+  // 获取图书畅销榜
+  $sql = "SELECT gname,title,author,price,pic,href FROM bm_index_goods WHERE sell_rank>0 ORDER BY sell_rank LIMIT 8";
+  $result = mysqli_query($conn, $sql);
+  $output['sellRankItems'] = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
   echo json_encode($output);
 

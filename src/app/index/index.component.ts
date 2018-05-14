@@ -15,6 +15,8 @@ export class IndexComponent implements OnInit {
   topSaleItems: string[] = [];
   firstRecommendedItem: any = null;
   restRecommendedItems: string[] = [];
+  newRankItems: string[] = [];
+  sellRankItems: string[] = [];
 
   constructor(private http: HttpService) { }
 
@@ -25,13 +27,14 @@ export class IndexComponent implements OnInit {
   getIndexData() {
     this.http.sendGetMethod(this.indexUrl, {})
       .subscribe((data: any) => {
-        console.log(data);
         this.carouselItems = data['carouselItems'];
         this.categoryItems = data['categoryItems'];
         this.newArrivalItems = data['newArrivalItems'];
         this.topSaleItems = data['topSaleItems'];
         this.firstRecommendedItem = data['recommendedItems'][0];
         this.restRecommendedItems = data['recommendedItems'].slice(1);
+        this.newRankItems = data['newRankItems'];
+        this.sellRankItems = data['sellRankItems'];
       })
   }
 }

@@ -8,13 +8,69 @@ h5 {
   border-bottom: 2px solid #E81A2F;
 }
 
+.new-rank {
+  margin-bottom: 50px;
+}
+
 ul>li {
   font-size: 12px;
   padding: 10px 5px;
   cursor: pointer;
   color: #665454;
+  border-bottom: 1px dashed #d8d8d8;
+  position: relative;
 }
 
 ul>li:hover {
   color: #000;
+}
+
+ul>li>span {
+  color: #000;
+  font-size: 16px;
+}
+
+ul>li:nth-child(1)>span, ul>li:nth-child(2)>span, ul>li:nth-child(3)>span {
+  color: #d10000;
+}
+
+img {
+  width: 80px;
+  height: 80px;
+  vertical-align: top;
+}
+
+.txt {
+  display: inline-block;
+  width: calc(100% - 108px);
+  line-height: 19px;
+  position: absolute;
+  top: 12px;
+}
+
+.name, .author {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.name>a {
+  color: #404040;
+  font-size: 13px;
+}
+
+.name>a:hover {
+  color: #fa2846;
+}
+
+.author, .discount-price {
+  color: #aaa;
+}
+
+.price {
+  color: #fa2846;
+}
+
+.discount-price {
+  text-decoration: line-through;
 }

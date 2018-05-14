@@ -24,8 +24,6 @@ h5 {
 
 .txt {
   position: absolute;
-  text-overflow: ellipsis;
-  white-space: nowrap;
 }
 
 .name {

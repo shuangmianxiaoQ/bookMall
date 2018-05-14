@@ -1,27 +1,31 @@
 <app-header></app-header>
 <div id="wrapper">
   <div class="row">
-    <div class="col-md-2 category">
-      <app-category [categoryItems]="categoryItems"></app-category>
-    </div>
-    <div class="col-md-8">
-      <app-carousel [carouselItems]="carouselItems"></app-carousel>
-      <app-new-arrival [newArrivalItems]="newArrivalItems"></app-new-arrival>
+    <div class="col-md-10 main">
+      <div class="row">
+        <div class="col-md-2 category">
+          <app-category [categoryItems]="categoryItems"></app-category>
+        </div>
+        <div class="col-md-10">
+          <app-carousel [carouselItems]="carouselItems"></app-carousel>
+          <app-new-arrival [newArrivalItems]="newArrivalItems"></app-new-arrival>
+        </div>
+        <div class="col-md-12 top-sale">
+          <app-top-sale [topSaleItems]="topSaleItems"></app-top-sale>
+        </div>
+        <div class="col-md-12">
+          <app-recommended
+            [firstRecommendedItem]="firstRecommendedItem"
+            [restRecommendedItems]="restRecommendedItems">
+          </app-recommended>
+        </div>
+      </div>
     </div>
     <div class="col-md-2 aside">
-      <app-rank></app-rank>
+      <app-rank
+        [newRankItems]="newRankItems"
+        [sellRankItems]="sellRankItems">
+      </app-rank>
     </div>
   </div>
-  <div class="row">
-    <div class="col-md-10 top-sale">
-      <app-top-sale [topSaleItems]="topSaleItems"></app-top-sale>
-    </div>
-    <div class="col-md-10">
-      <app-recommended
-        [firstRecommendedItem]="firstRecommendedItem"
-        [restRecommendedItems]="restRecommendedItems">
-      </app-recommended>
-    </div>
-  </div>
-</div>
-<app-footer></app-footer>
+  <app-footer></app-footer>

@@ -1,20 +1,35 @@
 <h5>新书热卖榜</h5>
-<ul>
-  <li>
-    <a href="">追风筝的人</a>
-  </li>
-  <li>
-    <a href="">我不</a>
-  </li>
-  <li>
-    <a href="">解忧杂货店</a>
-  </li>
-  <li>
-    <a href="">人间失格</a>
-  </li>
-  <li>
-    <a href="">平凡的世界</a>
+<ul class="new-rank">
+  <li *ngFor="let newRankItem of newRankItems; let i=index">
+    <span>{{i+1}}</span>
+    <a href="">
+      <img [src]="'assets/'+newRankItem.pic">
+    </a>
+    <div class="txt">
+      <p class="name">
+        <a href="#" [title]="newRankItem.title">{{newRankItem.gname}}</a>
+      </p>
+      <p class="author" [title]="newRankItem.author">{{newRankItem.author}}</p>
+      <p class="price">{{newRankItem.price | currency:'CNY':'symbol-narrow'}}</p>
+      <p class="discount-price">{{newRankItem.price * 0.8 | currency:'CNY':'symbol-narrow'}}</p>
+    </div>
   </li>
 </ul>
 
 <h5>图书畅销榜</h5>
+<ul>
+  <li *ngFor="let sellRankItem of sellRankItems; let i=index">
+    <span>{{i+1}}</span>
+    <a href="">
+      <img [src]="'assets/'+sellRankItem.pic">
+    </a>
+    <div class="txt">
+      <p class="name">
+        <a href="#" [title]="sellRankItem.title">{{sellRankItem.gname}}</a>
+      </p>
+      <p class="author" [title]="sellRankItem.author">{{sellRankItem.author}}</p>
+      <p class="price">{{sellRankItem.price | currency:'CNY':'symbol-narrow'}}</p>
+      <p class="discount-price">{{sellRankItem.price * 0.8 | currency:'CNY':'symbol-narrow'}}</p>
+    </div>
+  </li>
+</ul>

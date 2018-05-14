@@ -4,19 +4,24 @@
   background-color: #fff;
 }
 
-.category {
-  padding: 0;
-}
-
 .row {
   margin: 0;
   padding-bottom: 10px;
 }
 
-.aside {
+.category {
+  padding: 0;
+}
+
+.main {
   padding: 0;
 }
 
 .top-sale {
   padding-bottom: 20px;
 }
+
+.aside {
+  padding: 0;
+}
+
