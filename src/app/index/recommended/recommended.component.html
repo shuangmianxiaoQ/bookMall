@@ -1,3 +1,32 @@
-<p>
-  recommended works!
-</p>
+<h5>图书推荐</h5>
+<div class="row">
+  <div class="col-md-12" *ngIf="firstRecommendedItem!==null">
+    <div class="pic">
+      <a href="#">
+        <img [src]="'assets/'+firstRecommendedItem.pic" [title]="firstRecommendedItem.title">
+      </a>
+    </div>
+    <div class="txt">
+      <p class="name">
+        <a href="#" [title]="firstRecommendedItem.title">{{firstRecommendedItem.gname}}</a>
+      </p>
+      <p class="author">{{firstRecommendedItem.author}}</p>
+      <p class="price">{{firstRecommendedItem.price | currency:'CNY':'symbol-narrow'}}</p>
+      <div class="detail">{{firstRecommendedItem.details | stringToHtml}}</div>
+    </div>
+  </div>
+  <div class="col-md-3" *ngFor="let restRecommendedItem of restRecommendedItems">
+    <div class="pic">
+      <a href="#">
+        <img [src]="'assets/'+restRecommendedItem.pic" [title]="restRecommendedItem.title">
+      </a>
+    </div>
+    <div class="text">
+      <p class="name">
+        <a href="#" [title]="restRecommendedItem.title">{{restRecommendedItem.gname}}</a>
+      </p>
+      <p class="author">{{restRecommendedItem.author}}</p>
+      <p class="price">{{restRecommendedItem.price | currency:'CNY':'symbol-narrow'}}</p>
+    </div>
+  </div>
+</div>

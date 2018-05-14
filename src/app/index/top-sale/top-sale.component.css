@@ -8,12 +8,8 @@ h5 {
   text-indent: 4px;
 }
 
-img {
-  vertical-align: middle;
-}
-
 .row {
-  margin: 0;
+  margin-bottom: 0;
 }
 
 .col-md-4 {

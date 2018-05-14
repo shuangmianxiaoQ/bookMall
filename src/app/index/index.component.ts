@@ -13,6 +13,8 @@ export class IndexComponent implements OnInit {
   categoryItems: string[] = [];
   newArrivalItems: string[] = [];
   topSaleItems: string[] = [];
+  firstRecommendedItem: any = null;
+  restRecommendedItems: string[] = [];
 
   constructor(private http: HttpService) { }
 
@@ -28,6 +30,8 @@ export class IndexComponent implements OnInit {
         this.categoryItems = data['categoryItems'];
         this.newArrivalItems = data['newArrivalItems'];
         this.topSaleItems = data['topSaleItems'];
+        this.firstRecommendedItem = data['recommendedItems'][0];
+        this.restRecommendedItems = data['recommendedItems'].slice(1);
       })
   }
 }

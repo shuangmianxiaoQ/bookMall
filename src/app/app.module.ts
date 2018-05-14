@@ -20,6 +20,8 @@ import {NewArrivalComponent} from './index/new-arrival/new-arrival.component';
 import { TopSaleComponent } from './index/top-sale/top-sale.component';
 import { TimestampPipe } from './timestamp.pipe';
 import { RecommendedComponent } from './index/recommended/recommended.component';
+import { FooterComponent } from './footer/footer.component';
+import { StringToHtmlPipe } from './index/recommended/string-to-html.pipe';
 
 @NgModule({
   declarations: [
@@ -36,7 +38,9 @@ import { RecommendedComponent } from './index/recommended/recommended.component'
     NewArrivalComponent,
     TopSaleComponent,
     TimestampPipe,
-    RecommendedComponent
+    RecommendedComponent,
+    FooterComponent,
+    StringToHtmlPipe
   ],
   imports: [
     BrowserModule,

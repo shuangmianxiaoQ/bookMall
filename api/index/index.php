@@ -27,5 +27,10 @@
   $result = mysqli_query($conn, $sql);
   $output['topSaleItems'] = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
+  // 获取推荐书籍
+  $sql = "SELECT gname,title,author,price,pic,details,href FROM bm_index_goods WHERE recommended>0 ORDER BY recommended LIMIT 5";
+  $result = mysqli_query($conn, $sql);
+  $output['recommendedItems'] = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
   echo json_encode($output);
 

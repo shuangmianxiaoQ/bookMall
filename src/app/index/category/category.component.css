@@ -13,13 +13,14 @@ ul li {
   line-height: 20px;
   letter-spacing: 2px;
   padding: 10px 20px;
-  border-bottom: 1px dotted #487A6f;
+  border-bottom: 1px dashed #487A6f;
   cursor: pointer;
   position: relative;
 }
 
 ul {
   border: 1px solid #4DA493;
+  border-bottom: none;
 }
 
 ul li:hover {

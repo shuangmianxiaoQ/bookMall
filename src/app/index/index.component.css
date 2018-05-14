@@ -4,18 +4,19 @@
   background-color: #fff;
 }
 
-.content {
-  margin: 0;
-}
-
 .category {
   padding: 0;
 }
 
-.main {
-  
+.row {
+  margin: 0;
+  padding-bottom: 10px;
 }
 
 .aside {
   padding: 0;
+}
+
+.top-sale {
+  padding-bottom: 20px;
 }
