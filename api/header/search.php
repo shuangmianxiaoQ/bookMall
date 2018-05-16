@@ -6,7 +6,7 @@
   if(!$pno) {
     $pno = 1;
   } else {
-    $pno = $pno;
+    $pno = intval($pno);
   }
 
   $output = [
