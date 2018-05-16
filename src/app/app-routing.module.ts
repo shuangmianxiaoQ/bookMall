@@ -4,6 +4,7 @@ import {RouterModule, Routes} from '@angular/router';
 import {LoginComponent} from './login/login.component';
 import {RegisterComponent} from './register/register.component';
 import {IndexComponent} from './index/index.component';
+import { ListComponent } from './list/list.component';
 import {NotFoundComponent} from './not-found/not-found.component';
 
 const routes : Routes = [
@@ -20,6 +21,9 @@ const routes : Routes = [
   }, {
     path: 'index',
     component: IndexComponent
+  }, {
+    path: 'list',
+    component: ListComponent
   }, {
     path: '**',
     component: NotFoundComponent

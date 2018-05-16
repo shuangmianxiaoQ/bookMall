@@ -64,6 +64,20 @@
 	background-color: #fff;
 	position: absolute;
 	top: 30px;
+	z-index: 100;
+}
+
+.suggest-key {
 	padding: 8px;
 	border: 1px solid #ccc;
+	line-height: 18px;
+}
+
+.suggest-key>li:hover {
+	background-color: #ddd;
+	cursor: pointer;
+}
+
+.suggest-key>li>a:hover {
+	color: #fa2846;
 }

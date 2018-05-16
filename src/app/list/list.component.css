@@ -1,0 +1,58 @@
+#wrapper {
+  width: 80%;
+  margin: 0 auto;
+  background-color: #fff;
+}
+
+img {
+  width: 200px;
+  height: 200px;
+}
+
+.row {
+  margin: 0;
+}
+
+.top-tip {
+  font-size: 14px;
+  padding: 15px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.goods-item {
+  margin: 5px 0;
+}
+
+.goods-item>.row {
+  padding: 15px 0;
+}
+
+.goods-item>.row:hover {
+  background-color: #f8f8f8;
+}
+
+.txt {
+  line-height: 20px;
+}
+
+.txt>.title>a {
+  color: #1a66b3;
+  font-size: 16px;
+}
+
+.txt>.title>a:hover {
+  color: #fa2846;
+}
+
+.txt>.price {
+  font-size: 18px;
+  color: #fa2846;
+}
+
+.txt>.cart {
+  color: #fff;
+}
+
+.pagination {
+  margin: 20px 0 0 500px;
+}

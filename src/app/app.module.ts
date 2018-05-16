@@ -5,6 +5,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {AppRoutingModule} from './/app-routing.module';
 import {ModalModule} from 'ngx-bootstrap/modal';
 import {CarouselModule} from 'ngx-bootstrap/carousel';
+import {PaginationModule} from 'ngx-bootstrap/pagination';
 
 import {AppComponent} from './app.component';
 import {LoginComponent} from './login/login.component';
@@ -17,11 +18,12 @@ import {CarouselComponent} from './index/carousel/carousel.component';
 import {CategoryComponent} from './index/category/category.component';
 import {RankComponent} from './index/rank/rank.component';
 import {NewArrivalComponent} from './index/new-arrival/new-arrival.component';
-import { TopSaleComponent } from './index/top-sale/top-sale.component';
-import { TimestampPipe } from './timestamp.pipe';
-import { RecommendedComponent } from './index/recommended/recommended.component';
-import { FooterComponent } from './footer/footer.component';
-import { StringToHtmlPipe } from './index/recommended/string-to-html.pipe';
+import {TopSaleComponent} from './index/top-sale/top-sale.component';
+import {TimestampPipe} from './timestamp.pipe';
+import {RecommendedComponent} from './index/recommended/recommended.component';
+import {FooterComponent} from './footer/footer.component';
+import {StringToHtmlPipe} from './index/recommended/string-to-html.pipe';
+import {ListComponent} from './list/list.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +42,8 @@ import { StringToHtmlPipe } from './index/recommended/string-to-html.pipe';
     TimestampPipe,
     RecommendedComponent,
     FooterComponent,
-    StringToHtmlPipe
+    StringToHtmlPipe,
+    ListComponent
   ],
   imports: [
     BrowserModule,
@@ -48,7 +51,8 @@ import { StringToHtmlPipe } from './index/recommended/string-to-html.pipe';
     AppRoutingModule,
     HttpClientModule,
     ModalModule.forRoot(),
-    CarouselModule.forRoot()
+    CarouselModule.forRoot(),
+    PaginationModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

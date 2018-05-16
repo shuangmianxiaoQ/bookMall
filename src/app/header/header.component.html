@@ -1,22 +1,30 @@
+<script src="https://cdn.bootcss.com/lodash.js/4.17.10/lodash.js"></script>
 <div class="main">
-  <div id="header-top" class="clear">
-      <a routerLink="/index" class="logo">
-          <img src="assets/img/header/logo.png" />
-      </a>
-      <div id="top-input">
-          <div class="input-box">
-              <input type="text" placeholder="书名、作者" id="txtSearch">
-          </div>
-          <a href="#">搜索</a>
-      </div>
-      <ul id="list">
-          <li>
-              <a routerLink="/register">注册</a>
-          </li>
-          <li>
-              <a routerLink="/login">登录</a>
-          </li>
-      </ul>
-  </div>
-  <div id="nav"></div>
+	<div id="header-top" class="clear">
+		<a routerLink="/index" class="logo">
+			<img src="assets/img/header/logo.png" />
+		</a>
+		<div id="top-input">
+			<div class="input-box">
+				<input type="text" id="txtSearch" placeholder="书名、作者" (input)="suggestKey(suggest.value)" #suggest>
+			</div>
+			<div class="suggest_key" *ngIf="itemsLength > 0 && suggest.value">
+				<ul class="suggest-key">
+					<li *ngFor="let suggestItem of suggestItems">
+						<a href="" [title]="suggestItem.title">{{suggestItem.gname}}</a>
+					</li>
+				</ul>
+			</div>
+			<a routerLink="/list">搜索</a>
+		</div>
+		<ul id="list">
+			<li>
+				<a routerLink="/register">注册</a>
+			</li>
+			<li>
+				<a routerLink="/login">登录</a>
+			</li>
+		</ul>
+	</div>
+	<div id="nav"></div>
 </div>
