@@ -24,6 +24,8 @@ import {RecommendedComponent} from './index/recommended/recommended.component';
 import {FooterComponent} from './footer/footer.component';
 import {StringToHtmlPipe} from './index/recommended/string-to-html.pipe';
 import {ListComponent} from './list/list.component';
+import {CategoryListComponent} from './list/category-list/category-list.component';
+import {SearchListComponent} from './list/search-list/search-list.component';
 
 @NgModule({
   declarations: [
@@ -43,14 +45,12 @@ import {ListComponent} from './list/list.component';
     RecommendedComponent,
     FooterComponent,
     StringToHtmlPipe,
-    ListComponent
+    ListComponent,
+    CategoryListComponent,
+    SearchListComponent
   ],
   imports: [
-    BrowserModule,
-    FormsModule,
-    AppRoutingModule,
-    HttpClientModule,
-    ModalModule.forRoot(),
+    BrowserModule, FormsModule, AppRoutingModule, HttpClientModule, ModalModule.forRoot(),
     CarouselModule.forRoot(),
     PaginationModule.forRoot()
   ],

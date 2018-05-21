@@ -1,0 +1,41 @@
+<div id="wrapper">
+  <div class="row">
+    <div class="col-md-10">
+      <p class="top-tip">全部结果 > <span>共{{totalItems}}条</span></p>
+    </div> 
+    <div class="col-md-10 goods-item"
+      *ngFor="let goodsList of goodsLists">
+      <div class="row">
+        <div class="col-md-3">
+          <a href="">
+            <img [src]="'assets/'+goodsList.pic">
+          </a>
+        </div>
+        <div class="txt col-md-9">
+          <p class="title">
+            <a href="" [title]="goodsList.title">{{goodsList.title}}</a>
+          </p>
+          <p class="price">{{goodsList.price | currency:'CNY':'symbol-narrow'}}</p>
+          <p class="author-publish">
+            <span class="author">{{goodsList.author}}</span> /
+            <span class="publish-time">{{goodsList.publish_time | timestamp | date:'yyyy-MM'}}</span> /
+            <span class="publishing">{{goodsList.publishing}}</span>
+          </p>
+          <div class="introduction">{{goodsList.introduction}}</div>
+          <a class="btn btn-danger btn-sm cart">加入购物车</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row pager">
+    <div class="col-md-12">
+      <pagination
+        [totalItems]="totalItems"
+        [itemsPerPage]="itemsPerPage"
+        previousText="上一页"
+        nextText="下一页"
+        (pageChanged)="pageChanged($event)">
+      </pagination>
+    </div>
+  </div>
+</div>

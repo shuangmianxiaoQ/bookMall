@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpService } from '../http.service';
 import { HttpParams } from '@angular/common/http';
-import * as _ from 'lodash';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -14,7 +14,10 @@ export class HeaderComponent implements OnInit {
   suggestItems: string[] = [];
   itemsLength: number = 0;
 
-  constructor(private http: HttpService) { }
+  constructor(
+    private http: HttpService,
+    private router: Router
+  ) { }
 
   ngOnInit() { }
 
@@ -36,5 +39,15 @@ export class HeaderComponent implements OnInit {
         this.suggestItems = data;
         this.itemsLength = this.getJsonLength(data);
       })
+  }
+
+  searchKey(kw) {
+    if(kw) {
+      this.router.navigateByUrl('list/searchList/'+kw);
+      location.reload();
+    } else {
+      this.router.navigateByUrl('list/searchList/'+' ');
+      location.reload();
+    }
   }
 }

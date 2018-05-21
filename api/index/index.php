@@ -13,7 +13,7 @@
   $output['carouselItems'] = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
   // 获取书籍类目
-  $sql = "SELECT fname FROM bm_goods_family";
+  $sql = "SELECT fid,fname FROM bm_goods_family";
   $result = mysqli_query($conn, $sql);
   $output['categoryItems'] = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
