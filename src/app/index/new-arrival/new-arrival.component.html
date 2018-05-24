@@ -1,11 +1,11 @@
 <h5>新书上架</h5>
 <div class="row">
   <div class="col-md-3" *ngFor="let newArrivalItem of newArrivalItems">
-    <a href="#">
+    <a [routerLink]="newArrivalItem.href">
       <img [src]="'assets/'+newArrivalItem.pic" [title]="newArrivalItem.title">
     </a>
     <p class="name">
-      <a href="#" [title]="newArrivalItem.title">{{newArrivalItem.gname}}</a>
+      <a [routerLink]="newArrivalItem.href" [title]="newArrivalItem.title">{{newArrivalItem.gname}}</a>
     </p>
     <p class="author">{{newArrivalItem.author}}</p>
     <p class="price">{{newArrivalItem.price | currency:'CNY':'symbol-narrow'}}</p>

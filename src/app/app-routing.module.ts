@@ -8,6 +8,7 @@ import {ListComponent} from './list/list.component';
 import {NotFoundComponent} from './not-found/not-found.component';
 import {CategoryListComponent} from './list/category-list/category-list.component';
 import {SearchListComponent} from './list/search-list/search-list.component';
+import {DetailsComponent} from './details/details.component';
 
 const routes : Routes = [
   {
@@ -39,6 +40,9 @@ const routes : Routes = [
         component: CategoryListComponent
       }
     ]
+  }, {
+    path: 'details/:goodsId',
+    component: DetailsComponent
   }, {
     path: '**',
     component: NotFoundComponent

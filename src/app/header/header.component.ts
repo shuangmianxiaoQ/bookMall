@@ -44,10 +44,10 @@ export class HeaderComponent implements OnInit {
   searchKey(kw) {
     if(kw) {
       this.router.navigateByUrl('list/searchList/'+kw);
-      location.reload();
+      // location.reload();
     } else {
       this.router.navigateByUrl('list/searchList/'+' ');
-      location.reload();
+      // location.reload();
     }
   }
 }

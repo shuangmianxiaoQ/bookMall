@@ -16,6 +16,7 @@ ul li {
   border-bottom: 1px dashed #487A6f;
   cursor: pointer;
   position: relative;
+  outline: none;
 }
 
 ul {

@@ -2,12 +2,12 @@
 <ul class="new-rank">
   <li *ngFor="let newRankItem of newRankItems; let i=index">
     <span>{{i+1}}</span>
-    <a href="">
+    <a [routerLink]="newRankItem.href">
       <img [src]="'assets/'+newRankItem.pic">
     </a>
     <div class="txt">
       <p class="name">
-        <a href="#" [title]="newRankItem.title">{{newRankItem.gname}}</a>
+        <a [routerLink]="newRankItem.href" [title]="newRankItem.title">{{newRankItem.gname}}</a>
       </p>
       <p class="author" [title]="newRankItem.author">{{newRankItem.author}}</p>
       <p class="price">{{newRankItem.price | currency:'CNY':'symbol-narrow'}}</p>
@@ -20,12 +20,12 @@
 <ul>
   <li *ngFor="let sellRankItem of sellRankItems; let i=index">
     <span>{{i+1}}</span>
-    <a href="">
+    <a [routerLink]="sellRankItem.href">
       <img [src]="'assets/'+sellRankItem.pic">
     </a>
     <div class="txt">
       <p class="name">
-        <a href="#" [title]="sellRankItem.title">{{sellRankItem.gname}}</a>
+        <a [routerLink]="sellRankItem.href" [title]="sellRankItem.title">{{sellRankItem.gname}}</a>
       </p>
       <p class="author" [title]="sellRankItem.author">{{sellRankItem.author}}</p>
       <p class="price">{{sellRankItem.price | currency:'CNY':'symbol-narrow'}}</p>

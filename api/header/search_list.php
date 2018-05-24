@@ -1,6 +1,5 @@
 <?php
   require_once('../init.php');
-  require_once('./query_bm.php');
 
   @$kw = trim($_REQUEST['kw']);
   @$pno = $_REQUEST['pno'];

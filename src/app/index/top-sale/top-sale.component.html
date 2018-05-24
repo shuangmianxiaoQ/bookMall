@@ -2,13 +2,13 @@
 <div class="row">
   <div class="col-md-4" *ngFor="let topSaleItem of topSaleItems">
     <div class="pic">
-      <a href="#">
+      <a [routerLink]="topSaleItem.href">
         <img [src]="'assets/'+topSaleItem.pic" [title]="topSaleItem.title">
       </a>
     </div>
     <div class="txt">
       <p class="name">
-        <a href="#" [title]="topSaleItem.title">{{topSaleItem.gname}}</a>
+        <a [routerLink]="topSaleItem.href" [title]="topSaleItem.title">{{topSaleItem.gname}}</a>
       </p>
       <p class="author">{{topSaleItem.author}}</p>
       <p class="publishing">{{topSaleItem.publishing}}</p>

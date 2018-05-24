@@ -26,6 +26,7 @@ import {StringToHtmlPipe} from './index/recommended/string-to-html.pipe';
 import {ListComponent} from './list/list.component';
 import {CategoryListComponent} from './list/category-list/category-list.component';
 import {SearchListComponent} from './list/search-list/search-list.component';
+import {DetailsComponent} from './details/details.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import {SearchListComponent} from './list/search-list/search-list.component';
     StringToHtmlPipe,
     ListComponent,
     CategoryListComponent,
-    SearchListComponent
+    SearchListComponent,
+    DetailsComponent
   ],
   imports: [
     BrowserModule, FormsModule, AppRoutingModule, HttpClientModule, ModalModule.forRoot(),

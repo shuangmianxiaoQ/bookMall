@@ -1,5 +1,7 @@
 <carousel>
   <slide *ngFor="let carouselItem of carouselItems">
-    <img [src]="'assets/'+carouselItem.img">
+    <a routerLink="">
+      <img [src]="'assets/'+carouselItem.img">
+    </a>
   </slide>
 </carousel>

@@ -27,6 +27,7 @@ export class IndexComponent implements OnInit {
   getIndexData() {
     this.http.sendGetMethod(this.indexUrl, {})
       .subscribe((data: any) => {
+        console.log(data);
         this.carouselItems = data['carouselItems'];
         this.categoryItems = data['categoryItems'];
         this.newArrivalItems = data['newArrivalItems'];
