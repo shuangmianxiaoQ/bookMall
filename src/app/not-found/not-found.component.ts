@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./not-found.component.css']
 })
 export class NotFoundComponent implements OnInit {
+  obj: any = {"单选题": "一", "多选题": "2"};
 
   constructor() { }
 

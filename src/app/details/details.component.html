@@ -1,8 +1,10 @@
 <app-header></app-header>
 <div id="wrapper">
   <div class="row">
-    <div class="col-md-11">
-      <p class="top-tip">首页 > 小说 > 活着（2017年新版）</p>
+    <div class="col-md-11" *ngIf="goodsBesic">
+      <p class="top-tip">
+        <span routerLink="/index">首页</span> >
+        <span [routerLink]="'/list/categoryList/'+goodsBesic.fid">{{goodsBesic.fname}}</span> > {{goodsBesic.title}}</p>
     </div>
     <div class="col-md-4 preview">
       <div class="spec" *ngIf="goodsPic">
@@ -19,34 +21,34 @@
       </ul>
     </div>
     <div class="col-md-7">
-      <div class="goods-info" *ngIf="goodsDetails">
-        <p class="title">{{goodsDetails.title}}</p>
-        <p class="sub-title">{{goodsDetails.sub_title}}</p>
+      <div class="goods-info" *ngIf="goodsBesic">
+        <p class="title">{{goodsBesic.title}}</p>
+        <p class="sub-title">{{goodsBesic.sub_title}}</p>
         <p class="author">
           作者：
-          <span>{{goodsDetails.author}}</span>
+          <span>{{goodsBesic.author}}</span>
         </p>
         <p class="publishing">
           出版社：
-          <span>{{goodsDetails.publishing}}</span>
+          <span>{{goodsBesic.publishing}}</span>
         </p>
         <p class="publish-time">
           出版时间：
-          <span>{{goodsDetails.publish_time | timestamp | date:'yyyy年MM月'}}</span>
+          <span>{{goodsBesic.publish_time | timestamp | date:'yyyy年MM月'}}</span>
         </p>
         <p class="isbn">
           ISBN：
-          <span>{{goodsDetails.isbn}}</span>
+          <span>{{goodsBesic.isbn}}</span>
         </p>
         <div class="price">
           <div class="price-d">
             <p class="txt">抢购价</p>
             <p class="dd-price">
-              <span>¥</span>14.00</p>
+              <span>¥</span>{{goodsBesic.discount_price}}</p>
           </div>
-          <div class="price-r">(5折)</div>
+          <div class="price-r">({{(goodsBesic.discount_price / goodsBesic.price) * 10 | number:'1.0-2'}}折)</div>
           <div class="price-m">定价
-            <span>¥{{goodsDetails.price}}</span>
+            <span>{{goodsBesic.price | currency:'CNY':'symbol-narrow'}}</span>
           </div>
         </div>
         <div class="count">
@@ -60,6 +62,61 @@
         <button class="btn btn-danger">加入购物车</button>
         <button class="btn btn-secondary">立即购买</button>
       </div>
+    </div>
+    <div class="col-md-11 detail" *ngIf="goodsDetail">
+      <tabset>
+        <tab heading="商品详情" id="detail">
+          <div class="row">
+            <div class="col-md-4">出版社：{{goodsDetail.publishing}}</div>
+            <div class="col-md-4">ISBN：{{goodsDetail.isbn}}</div>
+            <div class="col-md-4">版 次：{{goodsDetail.edition}}</div>
+            <div class="col-md-4">页 数：{{goodsDetail.page_count}}</div>
+            <div class="col-md-4">字 数：{{goodsDetail.word_count}}</div>
+            <div class="col-md-4">开 本：{{goodsDetail.format}}</div>
+            <div class="col-md-4">印刷时间：{{goodsDetail.printing_time}}</div>
+            <div class="col-md-4">纸 张：{{goodsDetail.paper}}</div>
+            <div class="col-md-4">包 装：{{goodsDetail.package}}</div>
+          </div>
+          <div class="detail-content">
+            <div class="detail-content-wrap">
+              <div id="detail-tag-id-1">
+                <div class="detail-tag">
+                  <span>产品特色</span>
+                </div>
+                <p>
+                  <img [src]="'assets/'+goodsDetail.goods_features">
+                </p>
+              </div>
+              <div id="detail-tag-id-2">
+                <div class="detail-tag">
+                  <span>编辑推荐</span>
+                </div>
+                <p>{{goodsDetail.editor_recommend}}</p>
+              </div>
+              <div id="detail-tag-id-3">
+                <div class="detail-tag">
+                  <span>内容简介</span>
+                </div>
+                <p>{{goodsDetail.brief_introduction}}</p>
+              </div>
+              <div id="detail-tag-id-4">
+                <div class="detail-tag">
+                  <span>作者简介</span>
+                </div>
+                <p>{{goodsDetail.author_introduction}}</p>
+              </div>
+              <div id="detail-tag-id-5">
+                <div class="detail-tag">
+                  <span>精彩书摘</span>
+                </div>
+                <div class="digest">{{goodsDetail.wonderful_digest | parseHtml}}</div>
+              </div>
+            </div>
+            <div class="detail-content-nav"></div>
+          </div>
+        </tab>
+        <tab heading="售后保障"></tab>
+      </tabset>
     </div>
   </div>
 </div>

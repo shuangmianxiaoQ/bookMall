@@ -14,6 +14,10 @@
     if(!$row) {
       echo('{"code": 201, "msg": "用户名或密码错误"}');
     } else {
-      echo('{"code": 200, "msg": "登录成功"}');
+      session_start();
+      $_SESSION['loginUname'] = $uname;
+      $_SESSION['loginUid'] = $row['uid'];
+      $output = '{"code": 200, "msg": "登录成功", "session_data": {"uid":'.$row['uid'].', "uname": "'.$uname.'"}}';
+      echo $output;
     }
   }

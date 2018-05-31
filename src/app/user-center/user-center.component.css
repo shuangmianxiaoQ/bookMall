@@ -1,0 +1,52 @@
+#wrapper {
+  width: 80%;
+  margin: 0 auto;
+  background-color: #fff;
+}
+
+.row {
+  margin: 0;
+}
+
+.top-tip {
+  font-size: 14px;
+  padding: 15px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.top-tip>span {
+  cursor: pointer;
+}
+
+.top-tip>span:hover {
+  color: #e52222;
+}
+
+#menu {
+  height: 300px;
+  margin: 15px;
+  border: 1px solid #ddd;
+  padding: 0;
+  border-top: 4px solid #999;
+}
+
+#menu>dl>dt {
+  border-bottom: 1px solid #ddd;
+  font-size: 14px;
+  height: 27px;
+  line-height: 27px;
+  padding-left: 10px;
+  background-color: #f7f7f7;
+}
+
+#menu>dl>dd {
+  padding: 6px 20px;
+}
+
+#menu>dl>dt, #menu>dl>dd:last-child {
+  margin-bottom: 8px;
+}
+
+.user-center {
+  margin: 10px;
+}

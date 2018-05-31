@@ -1,0 +1,45 @@
+<tabset>
+  <tab heading="基本信息">
+    <form *ngIf="userInfo">
+      <div class="row">
+        <label class="col-md-2 col-form-label">用户名：</label>
+        <div class="col-md-6">
+          <input type="text" class="form-control-plaintext" name="uname" [(ngModel)]="userInfo.uname" readonly />
+        </div>
+      </div>
+      <div class="row">
+        <label class="col-md-2 col-form-label">电子邮箱：</label>
+        <div class="col-md-6">
+          <input type="text" class="form-control-plaintext" name="email" [(ngModel)]="userInfo.email" readonly />
+        </div>
+      </div>
+      <div class="row">
+        <label class="col-md-2 col-form-label">昵称：</label>
+        <div class="col-md-6">
+          <input type="text" class="user_name" name="user_name" [(ngModel)]="userInfo.user_name" autocomplete="off" />
+        </div>
+      </div>
+      <div class="row">
+        <label class="col-md-2 col-form-label">手机号码：</label>
+        <div class="col-md-6">
+          <input type="tel" class="phone" name="phone" [(ngModel)]="userInfo.phone" autocomplete="off" />
+        </div>
+      </div>
+      <div class="row">
+        <label class="col-md-2 col-form-label">性别：</label>
+        <div class="form-check-inline">
+          <input type="radio" class="form-check-input" name="gender" [(ngModel)]="userInfo.gender" value="1" />男
+        </div>
+        <div class="form-check-inline">
+          <input type="radio" class="form-check-input" name="gender" [(ngModel)]="userInfo.gender" value="0" />女
+        </div>
+      </div>
+      <div class="row">
+        <label class="col-md-2 col-form-label"></label>
+        <div class="col-md-6">
+          <button class="btn btn-secondary btn-sm" (click)="saveBasic()">保存基本资料</button>
+        </div>
+      </div>
+    </form>
+  </tab>
+</tabset>

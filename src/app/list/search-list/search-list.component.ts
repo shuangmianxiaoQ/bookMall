@@ -26,7 +26,6 @@ export class SearchListComponent implements OnInit {
 
   ngOnInit() {
     this.getCurrentPageGoods();
-    console.log(this.kw);
   }
 
   pageChanged(event: PageChangedEvent): void {

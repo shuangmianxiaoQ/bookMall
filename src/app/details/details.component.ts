@@ -13,8 +13,9 @@ export class DetailsComponent implements OnInit {
   goodsDetailUrl: string = `${this.http.baseUrl}goods/goods_detail.php`;
 
   gid: string = '';
-  goodsDetails: any = null;
+  goodsBesic: any = null;
   goodsPic: any = null;
+  goodsDetail: any = null;
 
   constructor(
     private http: HttpService,
@@ -35,8 +36,9 @@ export class DetailsComponent implements OnInit {
     this.http.sendGetMethod(this.goodsDetailUrl, httpOptios)
       .subscribe((data: any) => {
         console.log(data);
-        this.goodsDetails = data[0];
+        this.goodsBesic = data[0];
         this.goodsPic = data['picList'];
+        this.goodsDetail = data['detail'][0];
       })
   }
 

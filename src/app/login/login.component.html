@@ -19,7 +19,8 @@
           <input type="text" id="uname"
             [(ngModel)]="uname" name="uname"
             placeholder="请输入用户名"
-            (keyup)="onKeyName()" />
+            (keyup)="onKeyName()"
+            autocomplete="off" />
           <span class="msg" [hidden]="isShowNameError">请输入正确的用户名</span>
         </div>
         <div class="form-field">

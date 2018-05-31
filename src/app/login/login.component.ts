@@ -50,6 +50,8 @@ export class LoginComponent implements OnInit {
           this.isShowLoginError = false;
         } else if (data.code === 200) {
           this.router.navigateByUrl('/index');
+          let userInfo = data['session_data']
+          sessionStorage.setItem('userInfo', JSON.stringify(userInfo));
         }
       });
   }

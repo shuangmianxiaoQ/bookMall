@@ -6,6 +6,7 @@ import {AppRoutingModule} from './/app-routing.module';
 import {ModalModule} from 'ngx-bootstrap/modal';
 import {CarouselModule} from 'ngx-bootstrap/carousel';
 import {PaginationModule} from 'ngx-bootstrap/pagination';
+import {TabsModule} from 'ngx-bootstrap/tabs';
 
 import {AppComponent} from './app.component';
 import {LoginComponent} from './login/login.component';
@@ -27,6 +28,11 @@ import {ListComponent} from './list/list.component';
 import {CategoryListComponent} from './list/category-list/category-list.component';
 import {SearchListComponent} from './list/search-list/search-list.component';
 import {DetailsComponent} from './details/details.component';
+import {ParseHtmlPipe} from './details/parse-html.pipe';
+import {UserCenterComponent} from './user-center/user-center.component';
+import {MyInfoComponent} from './user-center/user-info/my-info/my-info.component';
+import {UserSafetyComponent} from './user-center/user-info/user-safety/user-safety.component';
+import {MyAddressComponent} from './user-center/user-info/my-address/my-address.component';
 
 @NgModule({
   declarations: [
@@ -49,12 +55,18 @@ import {DetailsComponent} from './details/details.component';
     ListComponent,
     CategoryListComponent,
     SearchListComponent,
-    DetailsComponent
+    DetailsComponent,
+    ParseHtmlPipe,
+    UserCenterComponent,
+    MyInfoComponent,
+    UserSafetyComponent,
+    MyAddressComponent
   ],
   imports: [
     BrowserModule, FormsModule, AppRoutingModule, HttpClientModule, ModalModule.forRoot(),
     CarouselModule.forRoot(),
-    PaginationModule.forRoot()
+    PaginationModule.forRoot(),
+    TabsModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

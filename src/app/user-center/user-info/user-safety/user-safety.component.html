@@ -1,0 +1,30 @@
+<tabset>
+  <tab heading="修改密码">
+    <form>
+      <div class="row">
+        <label class="col-md-2 col-form-label">原密码：</label>
+        <div class="col-md-6">
+          <input type="password" class="old-pwd" name="oldPwd" [(ngModel)]="oldPwd" autocomplete="off" />
+        </div>
+      </div>
+      <div class="row">
+        <label class="col-md-2 col-form-label">新密码：</label>
+        <div class="col-md-6">
+          <input type="password" class="new-pwd" name="newPwd" [(ngModel)]="newPwd" autocomplete="off" />
+        </div>
+      </div>
+      <div class="row">
+        <label class="col-md-2 col-form-label">确认密码：</label>
+        <div class="col-md-6">
+          <input type="password" class="confirm-pwd" autocomplete="off" />
+        </div>
+      </div>
+      <div class="row">
+        <label class="col-md-2 col-form-label"></label>
+        <div class="col-md-6">
+          <button class="btn btn-secondary btn-sm" (click)="savePwd()">保存更改</button>
+        </div>
+      </div>
+    </form>
+  </tab>
+</tabset>

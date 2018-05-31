@@ -11,15 +11,19 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
   suggestUrl: string = `${this.http.baseUrl}header/suggest.php`;
+  logoutUrl: string = `${this.http.baseUrl}user/logout.php`;
   suggestItems: string[] = [];
   itemsLength: number = 0;
+  userInfo: any = null;
 
   constructor(
     private http: HttpService,
     private router: Router
   ) { }
 
-  ngOnInit() { }
+  ngOnInit() {
+    this.userInfo = JSON.parse(sessionStorage.getItem('userInfo'));
+  }
 
   // 获取JSON数组的长度
   getJsonLength(json) {
@@ -49,5 +53,13 @@ export class HeaderComponent implements OnInit {
       this.router.navigateByUrl('list/searchList/'+' ');
       // location.reload();
     }
+  }
+
+  logout() {
+    this.http.sendGetMethod(this.logoutUrl, {})
+      .subscribe(data => {
+        sessionStorage.removeItem('userInfo');
+        this.router.navigateByUrl('login');
+      })
   }
 }

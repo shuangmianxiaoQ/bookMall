@@ -1,0 +1,28 @@
+form {
+  padding: 15px 0;
+}
+
+form>.row>.col-md-6 {
+  padding: 0;
+}
+
+.col-form-label {
+  text-align: right;
+}
+
+form>div {
+  margin: 10px 0;
+}
+
+.user_name, .phone {
+	width: 200px;
+  border: 1px solid #c9c9c9;
+  border-radius: 2px;
+  line-height: 20px;
+  font-size: 14px;
+  margin-top: 2px;
+}
+
+.user_name:focus, .phone:focus {
+	outline-color: #a9a9a9;
+}

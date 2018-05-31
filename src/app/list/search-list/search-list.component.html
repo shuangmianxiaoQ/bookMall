@@ -7,13 +7,13 @@
       *ngFor="let goodsList of goodsLists">
       <div class="row">
         <div class="col-md-3">
-          <a href="">
+          <a [routerLink]="'/details/'+goodsList.gid">
             <img [src]="'assets/'+goodsList.pic">
           </a>
         </div>
         <div class="txt col-md-9">
           <p class="title">
-            <a href="" [title]="goodsList.title">{{goodsList.title}}</a>
+            <a [routerLink]="'/details/'+goodsList.gid" [title]="goodsList.title">{{goodsList.title}}</a>
           </p>
           <p class="price">{{goodsList.price | currency:'CNY':'symbol-narrow'}}</p>
           <p class="author-publish">

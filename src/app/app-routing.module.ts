@@ -9,6 +9,10 @@ import {NotFoundComponent} from './not-found/not-found.component';
 import {CategoryListComponent} from './list/category-list/category-list.component';
 import {SearchListComponent} from './list/search-list/search-list.component';
 import {DetailsComponent} from './details/details.component';
+import {UserCenterComponent} from './user-center/user-center.component';
+import {MyInfoComponent} from './user-center/user-info/my-info/my-info.component';
+import {UserSafetyComponent} from './user-center/user-info/user-safety/user-safety.component';
+import {MyAddressComponent} from './user-center/user-info/my-address/my-address.component';
 
 const routes : Routes = [
   {
@@ -43,6 +47,23 @@ const routes : Routes = [
   }, {
     path: 'details/:goodsId',
     component: DetailsComponent
+  }, {
+    path: 'userCenter',
+    component: UserCenterComponent,
+    children: [
+      {
+        path: 'userInfo/myInfo',
+        component: MyInfoComponent
+      },
+      {
+        path: 'userInfo/userSafety',
+        component: UserSafetyComponent
+      },
+      {
+        path: 'userInfo/myAdderss',
+        component: MyAddressComponent
+      }
+    ]
   }, {
     path: '**',
     component: NotFoundComponent
