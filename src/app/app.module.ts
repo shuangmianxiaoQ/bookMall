@@ -33,6 +33,7 @@ import {UserCenterComponent} from './user-center/user-center.component';
 import {MyInfoComponent} from './user-center/user-info/my-info/my-info.component';
 import {UserSafetyComponent} from './user-center/user-info/user-safety/user-safety.component';
 import {MyAddressComponent} from './user-center/user-info/my-address/my-address.component';
+import { CartComponent } from './cart/cart.component';
 
 @NgModule({
   declarations: [
@@ -60,7 +61,8 @@ import {MyAddressComponent} from './user-center/user-info/my-address/my-address.
     UserCenterComponent,
     MyInfoComponent,
     UserSafetyComponent,
-    MyAddressComponent
+    MyAddressComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule, FormsModule, AppRoutingModule, HttpClientModule, ModalModule.forRoot(),

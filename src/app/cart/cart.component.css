@@ -1,0 +1,120 @@
+#wrapper {
+  width: 80%;
+  margin: 0 auto;
+  background-color: #fff;
+}
+
+.row {
+  margin: 0;
+}
+
+.top-tip {
+  font-size: 14px;
+  padding: 15px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.top-tip>span {
+  cursor: pointer;
+}
+
+.top-tip>span:hover {
+  color: #e52222;
+}
+
+.cart-thead {
+  text-align: center;
+  height: 36px;
+  line-height: 26px;
+  margin: 0 0 10px;
+  padding: 5px 0;
+  background: #f3f3f3;
+  border: 1px solid #e9e9e9;
+  border-top: 0;
+}
+
+.cart-tbody, .cart-tfoot {
+  text-align: center;
+}
+
+.cart-tbody {
+  line-height: 54px;
+  padding: 10px 0;
+  border: 1px solid #ddd;
+  margin-bottom: 5px;
+}
+
+.cart-tfoot {
+  height: 40px;
+  line-height: 18px;
+  margin-top: 20px;
+  padding: 10px 0;
+  border: 1px solid #eee;
+}
+
+.cart-tfoot button {
+  width: 80%;
+  margin-top: -6px;
+}
+
+.del-cart {
+  padding: 0;
+  text-align: left;
+}
+
+.select-count {
+  padding: 0;
+  text-align: right;
+}
+
+.select-count>span, .total-price>span {
+  color: #e52222;
+  font-weight: bolder;
+}
+
+.total-price>span {
+  font-size: 16px;
+}
+
+input[type="checkbox"] {
+  position: relative;
+  top: 2px;
+  right: 2px;
+}
+
+.count-reduce, .count-add {
+  display: inline-block;
+  width: 28px;
+  height: 28px;
+  line-height: 28px;
+  border: 1px solid #dcdcdc;
+  background-color: #f4f4f4;
+  position: relative;
+}
+
+.count-reduce {
+  left: 7px;
+}
+
+.count-add {
+  left: -7px;
+}
+
+.count-text {
+  width: 36px;
+  height: 28px;
+  text-align: center;
+  border: 1px solid #dcdcdc;
+  font-weight: bolder;
+  position: relative;
+  top: -1px;
+}
+
+.sub-total {
+  font-size: 14px;
+  color: #333;
+}
+
+.goods-info {
+  text-align: left;
+}

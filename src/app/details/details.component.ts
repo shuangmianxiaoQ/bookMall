@@ -11,11 +11,13 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class DetailsComponent implements OnInit {
   goodsDetailUrl: string = `${this.http.baseUrl}goods/goods_detail.php`;
+  addCartUrl: string = `${this.http.baseUrl}cart/add.php`;
 
   gid: string = '';
   goodsBesic: any = null;
   goodsPic: any = null;
   goodsDetail: any = null;
+  count: any = 1;
 
   constructor(
     private http: HttpService,
@@ -44,5 +46,17 @@ export class DetailsComponent implements OnInit {
 
   changePic(pic) {
     $('.preview>.spec img').attr('src', 'assets/'+pic);
+  }
+
+  addToCart() {
+    let httpOptions = {
+      params: new HttpParams().set('uid', JSON.parse(sessionStorage.getItem('userInfo')).uid)
+        .set('gid', this.gid)
+        .set('count', this.count)
+    };
+    this.http.sendGetMethod(this.addCartUrl, httpOptions)
+      .subscribe((data: any) => {
+        console.log(data);
+      })
   }
 }

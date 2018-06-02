@@ -1,0 +1,59 @@
+<app-header></app-header>
+<div id="wrapper">
+  <div class="row">
+    <div class="col-md-11">
+      <p class="top-tip">
+        <span routerLink="/index">首页</span> > 购物车
+      </p>
+    </div>
+    <div class="col-md-11">
+      <div class="row cart-thead">
+        <!-- <div class="col-md-1">
+          <input type="checkbox">全选
+        </div> -->
+        <div class="col-md-4">商品信息</div>
+        <div class="col-md-1">单价(元)</div>
+        <div class="col-md-3">数量</div>
+        <div class="col-md-2">小计(元)</div>
+        <div class="col-md-2">操作</div>
+      </div>
+      <div class="row cart-tbody" *ngFor="let cartItem of cartItems">
+        <!-- <div class="col-md-1">
+          <input type="checkbox">
+        </div> -->
+        <div class="col-md-4 goods-info">
+          <a href="#">
+            <img [src]="'assets/'+cartItem.pic">
+          </a>
+          <span>{{cartItem.title}}</span>
+        </div>
+        <div class="col-md-1">{{cartItem.price | currency:'CNY':'symbol-narrow'}}</div>
+        <div class="col-md-3">
+          <a href="javascript:;" class="count-reduce" (click)="modifyCount(cartItem.cid, $event, false)">-</a>
+          <input type="text" class="count-text" [value]="cartItem.count" #count>
+          <a href="javascript:;" class="count-add" (click)="modifyCount(cartItem.cid, $event, true)">+</a>
+        </div>
+        <div class="col-md-2 sub-total">{{cartItem.price * count.value | currency:'CNY':'symbol-narrow'}}</div>
+        <div class="col-md-2">
+          <a href="javascript:;" (click)="delItem(cartItem.cid, $event)">删除</a>
+        </div>
+      </div>
+      <div class="row cart-tfoot">
+        <!-- <div class="col-md-1">
+          <input type="checkbox">全选
+        </div>
+        <div class="col-md-1 del-cart">批量删除</div> -->
+        <div class="col-md-8"></div>
+        <!-- <div class="col-md-2 select-count">已选择
+          <span>0</span>件商品</div> -->
+        <div class="col-md-2 total-price">总价：
+          <span>{{totalPrice | currency:'CNY':'symbol-narrow'}}</span>
+        </div>
+        <div class="col-md-2">
+          <button class="btn btn-sm btn-danger">去结算</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>
