@@ -1,3 +1,24 @@
+.new-address {
+  margin: 10px 0;
+  border-radius: 2px;
+  padding: 4px 32px;
+  background-image: linear-gradient(to bottom,#f5fbef 0,#eaf6e2 100%);
+  border: 1px solid #bfd6af;
+}
+
+.modal {
+  top: 100px;
+}
+
+.modal-header {
+  padding: 8px 16px;
+}
+
+.modal-header>.close {
+  margin: -0.5rem;
+  font-size: 16px;
+}
+
 form {
   padding: 10px 0;
 }
@@ -33,4 +54,50 @@ form>div {
 .receiver:hover, .phone:hover, .street:hover, .postcode:hover,
 #selProvince:hover, #selCity:hover, #selCounty:hover {
 	outline-color: #a9a9a9;
+}
+
+.address {
+  width: 80%;
+  border: 2px solid #e6e6e6;
+  margin: 0 0 10px;
+  padding: 10px;
+  box-shadow: 3px 3px 6px #ccc;
+  position: relative;
+}
+
+.address>h5 {
+  font-size: 14px;
+  font-weight: bolder;
+  color: #333;
+}
+
+.del-address {
+  position: absolute;
+  right: 12px;
+  top: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  font-weight: bolder;
+  color: #aaa;
+}
+
+.edit-address {
+  position: absolute;
+  bottom: 8px;
+  right: 16px;
+  cursor: pointer;
+  font-family: sans-serif;
+}
+
+.address-info {
+  color: #444;
+  margin: 16px 0 0 4px;
+  line-height: 20px;
+}
+
+.address-info>p>span {
+  color: #999;
+  display: inline-block;
+  width: 4rem;
+  text-align: right;
 }

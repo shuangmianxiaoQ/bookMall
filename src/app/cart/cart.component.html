@@ -22,10 +22,10 @@
           <input type="checkbox">
         </div> -->
         <div class="col-md-4 goods-info">
-          <a href="#">
+          <a (click)="jumpToDetail(cartItem.gid)">
             <img [src]="'assets/'+cartItem.pic">
           </a>
-          <span>{{cartItem.title}}</span>
+          <span (click)="jumpToDetail(cartItem.gid)">{{cartItem.title}}</span>
         </div>
         <div class="col-md-1">{{cartItem.price | currency:'CNY':'symbol-narrow'}}</div>
         <div class="col-md-3">
@@ -50,7 +50,7 @@
           <span>{{totalPrice | currency:'CNY':'symbol-narrow'}}</span>
         </div>
         <div class="col-md-2">
-          <button class="btn btn-sm btn-danger">去结算</button>
+          <button class="btn btn-sm btn-danger" routerLink="/order">去结算</button>
         </div>
       </div>
     </div>

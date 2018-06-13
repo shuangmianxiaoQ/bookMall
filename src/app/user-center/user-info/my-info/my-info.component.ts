@@ -38,7 +38,7 @@ export class MyInfoComponent implements OnInit {
     };
     this.http.sendGetMethod(this.updateBasicUrl, httpOptions)
       .subscribe((data: any) => {
-        console.log(data);
+        alert(data.msg)
       })
   }
 }

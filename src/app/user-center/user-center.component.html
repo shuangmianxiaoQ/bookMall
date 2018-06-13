@@ -10,25 +10,42 @@
       <dl class="fore1">
         <dt>订单中心</dt>
         <dd>
-          <a href="">全部订单</a>
+          <a routerLink="/userCenter/orderInfo/myOrder">
+            <fa-icon [icon]="['fas', 'clipboard-list']"></fa-icon> 全部订单
+          </a>
         </dd>
         <dd>
-          <a href="">待付款</a>
+          <a routerLink="/userCenter/orderInfo/unpaidOrder">
+            <fa-icon [icon]="['fas', 'wallet']"></fa-icon> 待付款
+          </a>
         </dd>
         <dd>
-          <a href="">待收货</a>
+          <a routerLink="/userCenter/orderInfo/unacceptedOrder">
+            <fa-icon [icon]="['fas', 'clipboard-check']"></fa-icon> 待收货
+          </a>
+        </dd>
+        <dd>
+          <a routerLink="/userCenter/orderInfo/cancelledOrder">
+            <fa-icon [icon]="['fas', 'times-circle']"></fa-icon> 已取消
+          </a>
         </dd>
       </dl>
       <dl class="fore2">
         <dt>个人中心</dt>
         <dd>
-          <a routerLink="/userCenter/userInfo/myInfo">个人信息</a>
+          <a routerLink="/userCenter/userInfo/myInfo">
+            <fa-icon [icon]="['fas', 'user']"></fa-icon> 个人信息
+          </a>
         </dd>
         <dd>
-          <a routerLink="/userCenter/userInfo/userSafety">账户安全</a>
+          <a routerLink="/userCenter/userInfo/userSafety">
+            <fa-icon [icon]="['fas', 'key']"></fa-icon> 账户安全
+          </a>
         </dd>
         <dd>
-          <a routerLink="/userCenter/userInfo/myAdderss">收货地址</a>
+          <a routerLink="/userCenter/userInfo/myAdderss">
+            <fa-icon [icon]="['fas', 'map-marker']"></fa-icon> 收货地址
+          </a>
         </dd>
       </dl>
     </div>

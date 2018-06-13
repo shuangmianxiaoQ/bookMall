@@ -69,6 +69,7 @@ export class CartComponent implements OnInit {
       .subscribe((data: any) => {
         console.log(data);
         if(data.code === 200) {
+          alert(data.msg);
           $(event.target).parent().parent().remove();
           this.computedTotalCount();
         }
@@ -83,5 +84,9 @@ export class CartComponent implements OnInit {
       sum += parseFloat($(this).text().slice(1));
     })
     this.totalPrice = String(sum);
+  }
+
+  jumpToDetail(gid) {
+    open('/details/'+gid, '_blank');
   }
 }

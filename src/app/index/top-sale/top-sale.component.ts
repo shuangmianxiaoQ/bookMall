@@ -13,4 +13,7 @@ export class TopSaleComponent implements OnInit {
   ngOnInit() {
   }
 
+  jumpToDetail(href) {
+    open(href, '_blank');   
+  }
 }

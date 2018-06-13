@@ -2,12 +2,12 @@
 <ul class="new-rank">
   <li *ngFor="let newRankItem of newRankItems; let i=index">
     <span>{{i+1}}</span>
-    <a [routerLink]="newRankItem.href">
+    <a (click)="jumpToDetail(newRankItem.href)">
       <img [src]="'assets/'+newRankItem.pic">
     </a>
     <div class="txt">
       <p class="name">
-        <a [routerLink]="newRankItem.href" [title]="newRankItem.title">{{newRankItem.gname}}</a>
+        <a (click)="jumpToDetail(newRankItem.href)" [title]="newRankItem.title">{{newRankItem.gname}}</a>
       </p>
       <p class="author" [title]="newRankItem.author">{{newRankItem.author}}</p>
       <p class="price">{{newRankItem.price | currency:'CNY':'symbol-narrow'}}</p>
@@ -17,15 +17,15 @@
 </ul>
 
 <h5>图书畅销榜</h5>
-<ul>
+<ul class="sell-rank">
   <li *ngFor="let sellRankItem of sellRankItems; let i=index">
     <span>{{i+1}}</span>
-    <a [routerLink]="sellRankItem.href">
+    <a (click)="jumpToDetail(sellRankItem.href)">
       <img [src]="'assets/'+sellRankItem.pic">
     </a>
     <div class="txt">
       <p class="name">
-        <a [routerLink]="sellRankItem.href" [title]="sellRankItem.title">{{sellRankItem.gname}}</a>
+        <a (click)="jumpToDetail(sellRankItem.href)" [title]="sellRankItem.title">{{sellRankItem.gname}}</a>
       </p>
       <p class="author" [title]="sellRankItem.author">{{sellRankItem.author}}</p>
       <p class="price">{{sellRankItem.price | currency:'CNY':'symbol-narrow'}}</p>

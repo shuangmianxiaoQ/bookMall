@@ -13,7 +13,7 @@
     }
   }
 
-  $sql = "SELECT gname,title FROM bm_goods WHERE ".join(' AND ', $kws)."LIMIT 10";
+  $sql = "SELECT gid,gname,title FROM bm_goods WHERE ".join(' AND ', $kws)."LIMIT 10";
   $result = mysqli_query($conn, $sql);
 
   if(!$result) {

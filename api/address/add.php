@@ -13,7 +13,7 @@
   @$postcode = $_REQUEST['postcode'];
   @$is_default = $_REQUEST['is_default'];
 
-  $sql = "INSERT INTO bm_user_address VALUES(NULL,$uid,$receiver,$province,$city,$county,$street,$phone,$postcode,false')";
+  $sql = "INSERT INTO bm_user_address VALUES(NULL,$uid,'$receiver','$province','$city','$county','$street','$phone','$postcode',false)";
   $result = mysqli_query($conn, $sql);
   if(!$result) {
     echo('{"code": 500, "msg": "请检查SQL语句"}');

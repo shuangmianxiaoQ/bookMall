@@ -27,6 +27,7 @@ ul {
 ul li:hover {
   font-weight: bold;
   color: #4DA493;
+  background-color: #f6f6f6;
 }
 
 ul li:hover:after {

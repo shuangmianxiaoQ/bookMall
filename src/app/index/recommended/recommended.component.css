@@ -49,6 +49,7 @@ h5 {
 .txt>.price {
   font-size: 13px;
   color: #fa2846;
+  font-weight: bolder;
 }
 
 .txt>.detail {
@@ -79,6 +80,22 @@ h5 {
   font-size: 13px;
 }
 
-.text>.name>a:hover, .text>.price {
+.text>.name>a:hover {
   color: #fa2846;
+}
+
+.text>.price {
+  color: #fa2846;
+  font-weight: bolder;
+}
+
+.txt>.price>span, .text>.price>span {
+  text-decoration: line-through;
+  color: #aaa;
+  margin-left: 8px;
+  font-weight: normal;
+}
+
+.pic>a, .name>a {
+  cursor: pointer;
 }

@@ -67,3 +67,7 @@ img {
 .pager {
   margin: 20px 0 0 500px;
 }
+
+.title>a, .col-md-3>a{
+  cursor: pointer;
+}

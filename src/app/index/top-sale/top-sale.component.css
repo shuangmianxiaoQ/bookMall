@@ -47,4 +47,16 @@ h5 {
 
 .price {
   color: #fa2846;
+  font-weight: bolder;
+}
+
+.price>span {
+  text-decoration: line-through;
+  color: #aaa;
+  margin-left: 8px;
+  font-weight: normal;
+}
+
+.pic>a, .name>a {
+  cursor: pointer;
 }

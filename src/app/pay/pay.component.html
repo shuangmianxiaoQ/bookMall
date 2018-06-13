@@ -1,0 +1,85 @@
+<app-header></app-header>
+<div id="wrapper">
+  <div class="row">
+    <div class="col-md-11">
+      <p class="top-tip">
+        <span routerLink="/index">首页</span> > 支付中心
+      </p>
+    </div>
+    <div class="col-md-10 order-success" *ngIf="orderAddress">
+      <span>
+        <fa-icon [icon]="['fas', 'check-circle']" size="8x"></fa-icon>
+      </span>
+      <h5>订单提交成功，请尽快付款！</h5>
+      <p class="receive-info">收货信息：{{orderAddress.receiver}} {{orderAddress.phone}} {{orderAddress.province}}{{orderAddress.city}}{{orderAddress.county}}
+        {{orderAddress.street}}
+      </p>
+      <p class="goods-info">商品信息：
+        <span *ngFor="let orderItem of orderLsit">《{{orderItem.gname}}》</span>
+      </p>
+      <p class="pay-money" *ngIf="totalPrice">应付金额：
+        <span>¥{{totalPrice}}</span>
+      </p>
+    </div>
+    <div class="col-md-10 payment">
+      <p>选择以下支付方式付款</p>
+      <div class="pay-platform">
+        <h5>支付平台</h5>
+        <div class="row">
+          <div class="col-md-3" (click)="selPayment($event)">
+            <img src="assets/img/order/weixinpay.png">
+          </div>
+          <div class="col-md-3" (click)="selPayment($event)">
+            <img src="assets/img/order/alipay.png">
+          </div>
+          <div class="col-md-3" (click)="selPayment($event)">
+            <img src="assets/img/order/unionpay.png">
+          </div>
+        </div>
+      </div>
+      <div class="fast-pay">
+        <h5>快捷支付</h5>
+        <div class="row">
+          <div class="col-md-3" (click)="selPayment($event)">
+            <img src="assets/img/order/payOnline_zsyh.png">
+          </div>
+          <div class="col-md-3" (click)="selPayment($event)">
+            <img src="assets/img/order/payOnline_gsyh.png">
+          </div>
+          <div class="col-md-3" (click)="selPayment($event)">
+            <img src="assets/img/order/payOnline_jsyh.png">
+          </div>
+          <div class="col-md-3" (click)="selPayment($event)">
+            <img src="assets/img/order/payOnline_jtyh.png">
+          </div>
+          <div class="col-md-3" (click)="selPayment($event)">
+            <img src="assets/img/order/payOnline_youzheng.png">
+          </div>
+          <div class="col-md-3" (click)="selPayment($event)">
+            <img src="assets/img/order/payOnline_zgyh.png">
+          </div>
+        </div>
+      </div>
+      <div class="cod">
+        <h5>货到付款</h5>
+        <div class="row">
+          <div class="col-md-3" (click)="selPayment($event)">
+            货到付款
+          </div>
+        </div>
+      </div>
+      <button class="btn btn-pay" (click)="openModal(template)">立即支付</button>
+      <ng-template #template>
+        <div class="modal-body text-center">
+          <span>
+            <fa-icon [icon]="['fas', 'check-circle']" size="4x"></fa-icon>
+          </span>
+          <p>支付成功！</p>
+          <button type="button" class="btn btn-shopping" (click)="goShopping()">继续购物</button>
+          <button type="button" class="btn btn-order" (click)="goOrder()">查看订单</button>
+        </div>
+      </ng-template>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

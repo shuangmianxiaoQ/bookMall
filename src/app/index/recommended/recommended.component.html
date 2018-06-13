@@ -2,31 +2,37 @@
 <div class="row">
   <div class="col-md-12" *ngIf="firstRecommendedItem">
     <div class="pic">
-      <a [routerLink]="firstRecommendedItem.href">
+      <a (click)="jumpToDetail(firstRecommendedItem.href)">
         <img [src]="'assets/'+firstRecommendedItem.pic" [title]="firstRecommendedItem.title">
       </a>
     </div>
     <div class="txt">
       <p class="name">
-        <a [routerLink]="firstRecommendedItem.href" [title]="firstRecommendedItem.title">{{firstRecommendedItem.gname}}</a>
+        <a (click)="jumpToDetail(firstRecommendedItem.href)" [title]="firstRecommendedItem.title">{{firstRecommendedItem.gname}}</a>
       </p>
       <p class="author">{{firstRecommendedItem.author}}</p>
-      <p class="price">{{firstRecommendedItem.price | currency:'CNY':'symbol-narrow'}}</p>
+      <p class="price">
+        {{firstRecommendedItem.price * 0.8 | currency:'CNY':'symbol-narrow'}}
+        <span>{{firstRecommendedItem.price | currency:'CNY':'symbol-narrow'}}</span>
+      </p>
       <div class="detail">{{firstRecommendedItem.details | stringToHtml}}</div>
     </div>
   </div>
   <div class="col-md-3" *ngFor="let restRecommendedItem of restRecommendedItems">
     <div class="pic">
-      <a [routerLink]="restRecommendedItem.href">
+      <a (click)="jumpToDetail(restRecommendedItem.href)">
         <img [src]="'assets/'+restRecommendedItem.pic" [title]="restRecommendedItem.title">
       </a>
     </div>
     <div class="text">
       <p class="name">
-        <a [routerLink]="restRecommendedItem.href" [title]="restRecommendedItem.title">{{restRecommendedItem.gname}}</a>
+        <a (click)="jumpToDetail(restRecommendedItem.href)" [title]="restRecommendedItem.title">{{restRecommendedItem.gname}}</a>
       </p>
       <p class="author">{{restRecommendedItem.author}}</p>
-      <p class="price">{{restRecommendedItem.price | currency:'CNY':'symbol-narrow'}}</p>
+      <p class="price">
+        {{restRecommendedItem.price * 0.8 | currency:'CNY':'symbol-narrow'}}
+        <span>{{restRecommendedItem.price | currency:'CNY':'symbol-narrow'}}</span>
+      </p>
     </div>
   </div>
 </div>

@@ -6,12 +6,12 @@
 		</a>
 		<div id="top-input">
 			<div class="input-box">
-				<input type="text" id="txtSearch" placeholder="书名、作者、出版社" (ngModel)="keyword" (input)="suggestKey(suggest.value)" #suggest>
+				<input type="text" id="txtSearch" placeholder="书名、作者、出版社" [(ngModel)]="keyword" (input)="suggestKey(suggest.value)" #suggest>
 			</div>
 			<div class="suggest_key" *ngIf="itemsLength > 0 && suggest.value">
 				<ul class="suggest-key">
-					<li *ngFor="let suggestItem of suggestItems">
-						<a href="" [title]="suggestItem.title">{{suggestItem.gname}}</a>
+					<li (click)="jumpToDetail(suggestItem.gid)" [title]="suggestItem.title" *ngFor="let suggestItem of suggestItems">
+						<a>{{suggestItem.gname}}</a>
 					</li>
 				</ul>
 			</div>
@@ -21,18 +21,32 @@
 			<li>
 				<a routerLink="/register" title="注册新用户">注册</a>
 			</li>
+			|
 			<li>
 				<a routerLink="/login" title="新用户登录">登录</a>
 			</li>
 		</ul>
 		<ul id="list" *ngIf="userInfo">
-			<li>
-				<a routerLink="/userCenter/userInfo/myInfo">Hi,{{userInfo.uname}}</a>
+			<li dropdown>
+				<a dropdownToggle class="dropdown-toggle">欢迎 {{userInfo.uname}}</a>
+				<ul *dropdownMenu class="dropdown-menu">
+					<li>
+						<a class="dropdown-item" routerLink="/userCenter/userInfo/myInfo">
+							<fa-icon [icon]="['fas', 'user']"></fa-icon> 用户中心
+						</a>
+						<a class="dropdown-item" routerLink="/cart">
+							<fa-icon [icon]="['fas', 'shopping-cart']"></fa-icon> 购物车
+						</a>
+						<a class="dropdown-item" routerLink="/userCenter/orderInfo/myOrder">
+							<fa-icon [icon]="['fas', 'file-alt']"></fa-icon> 我的订单
+						</a>
+					</li>
+				</ul>
 			</li>
+			|
 			<li>
 				<a href="javascript:;" (click)="logout()">登出</a>
 			</li>
 		</ul>
 	</div>
-	<div id="nav"></div>
 </div>

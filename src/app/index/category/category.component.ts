@@ -11,4 +11,8 @@ export class CategoryComponent implements OnInit {
   constructor() { }
 
   ngOnInit() { }
+
+  jumpToList(fid) {
+    open('/list/categoryList/'+fid, '_blank');
+  }
 }

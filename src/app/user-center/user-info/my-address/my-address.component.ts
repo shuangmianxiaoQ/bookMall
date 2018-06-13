@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { pcaa } from 'area-data';
 import { HttpService } from '../../../http.service';
 import { HttpParams } from '@angular/common/http';
+import { ModalDirective } from 'ngx-bootstrap/modal';
 
 @Component({
   selector: 'app-my-address',
@@ -10,11 +11,19 @@ import { HttpParams } from '@angular/common/http';
   providers: [ HttpService ]
 })
 export class MyAddressComponent implements OnInit {
+  @ViewChild(ModalDirective) modal: ModalDirective;
+
   addAddressUrl: string = `${this.http.baseUrl}address/add.php`;
+  addressListUrl: string = `${this.http.baseUrl}address/list.php`;
+  delAddressUrl: string = `${this.http.baseUrl}address/del.php`;
+  addressInfoUrl: string = `${this.http.baseUrl}address/info.php`;
+  updateAddressUrl: string = `${this.http.baseUrl}address/update.php`;
+
   provinces: string[] = [];
   cities: string[] = [];
   selCites: any = null;
   counties: string[] = [];
+  addressList: string[] = [];
 
   receiver: string = '';
   province: string = '-选择省份/自治区-';
@@ -24,10 +33,13 @@ export class MyAddressComponent implements OnInit {
   phone: string = '';
   postcode: string = '';
 
+  addressInfo: any = {};
+
   constructor(private http: HttpService) { }
 
   ngOnInit() {
     this.provinces = Object.values(pcaa['86']);
+    this.getAddressList();
   }
 
   selectCity(e) {
@@ -72,5 +84,41 @@ export class MyAddressComponent implements OnInit {
           console.log(data);
         })
     }
+  }
+
+  getAddressList() {
+    const userInfo = JSON.parse(sessionStorage.getItem('userInfo'));
+    if(!userInfo) {
+      alert('用户未登录');
+    } else {
+      let httpOptions = {
+        params: new HttpParams().set('uid', userInfo.uid)
+      };
+      this.http.sendGetMethod(this.addressListUrl, httpOptions)
+        .subscribe((data:any) => {
+          this.addressList = data;
+          console.log(data);
+        })
+    }
+  }
+
+  delAddress(aid, event) {
+    let httpOptions = {
+      params: new HttpParams().set('aid', aid)
+    };
+    this.http.sendGetMethod(this.delAddressUrl, httpOptions)
+      .subscribe((data:any) => {
+        console.log(data);
+        if(data.code === 200) {
+          alert(data.msg);
+          $(event.target).parent().remove();
+        }
+      })
+  }
+
+  editAddress(addressInfo) {
+    this.modal.show();
+    this.addressInfo = addressInfo;
+    console.log(addressInfo);
   }
 }

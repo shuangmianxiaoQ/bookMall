@@ -1,0 +1,28 @@
+.pay-modal{
+  display: flex;
+  top: 20%;
+}
+
+.pay-modal span {
+  color: #28a745;
+}
+
+.pay-modal p {
+  font-size: 14px;
+  padding: 10px;
+  color: #ff2832;
+}
+
+.pay-modal .btn-shopping, .pay-modal .btn-order {
+  width: 100px;
+  padding: 5px;
+  background-color: #e52222;
+  color: #fff;
+  font-size: 13px;
+  margin: 10px;
+}
+
+.pay-modal .btn-order {
+  background-color: #ccc;
+  color: #000;
+}

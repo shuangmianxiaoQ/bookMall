@@ -12,4 +12,7 @@ export class NewArrivalComponent implements OnInit {
 
   ngOnInit() {}
 
+  jumpToDetail(href) {
+    open(href, '_blank');   
+  }
 }

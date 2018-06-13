@@ -14,4 +14,7 @@ export class RankComponent implements OnInit {
   ngOnInit() {
   }
 
+  jumpToDetail(href) {
+    open(href, '_blank');   
+  }
 }

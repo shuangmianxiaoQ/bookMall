@@ -1,61 +1,171 @@
 <tabset>
   <tab heading="收货地址">
-    <form #addressForm="ngForm">
-      <div class="row">
-        <label class="col-md-2 col-form-label">收货人：</label>
-        <div class="col-md-6">
-          <input type="text" class="receiver" name="receiver" [(ngModel)]="receiver" autocomplete="off" required />
+    <button class="btn btn-sm new-address" (click)="newAddressModal.show()">添加收货地址</button>
+    <div bsModal #newAddressModal="bs-modal" class="modal fade" tabindex="-1" role="dialog">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title pull-left">添加收货地址</h5>
+            <button type="button" class="close pull-right" (click)="newAddressModal.hide()">
+              <span>
+                <fa-icon [icon]="['fas', 'times']"></fa-icon>
+              </span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form #addressForm="ngForm">
+              <div class="row">
+                <label class="col-md-2 col-form-label">收货人：</label>
+                <div class="col-md-6">
+                  <input type="text" class="receiver" name="receiver" [(ngModel)]="receiver" autocomplete="off" required />
+                </div>
+              </div>
+              <div class="row">
+                <label class="col-md-2 col-form-label">手机号码：</label>
+                <div class="col-md-6">
+                  <input type="text" class="phone" name="phone" [(ngModel)]="phone" autocomplete="off" required />
+                </div>
+              </div>
+              <div class="row">
+                <label class="col-md-2 col-form-label">所在地区：</label>
+                <div class="col-md-8">
+                  <select id="selProvince" name="province" [(ngModel)]="province" (change)="selectCity($event)">
+                    <option>-选择省份/自治区-</option>
+                    <ng-container *ngFor="let p of provinces">
+                      <option [value]="p">{{p}}</option>
+                    </ng-container>
+                  </select>
+                  <select id="selCity" name="city" [(ngModel)]="city" (change)="selectCounty($event)">
+                    <option>-选择城市/地区-</option>
+                    <ng-container *ngFor="let c of cities">
+                      <option [value]="c">{{c}}</option>
+                    </ng-container>
+                  </select>
+                  <select id="selCounty" name="county" [(ngModel)]="county">
+                    <option selected>-选择区县-</option>
+                    <ng-container *ngFor="let cn of counties">
+                      <option [value]="cn">{{cn}}</option>
+                    </ng-container>
+                  </select>
+                </div>
+              </div>
+              <div class="row">
+                <label class="col-md-2 col-form-label">详细地址：</label>
+                <div class="col-md-6">
+                  <input type="text" class="street" name="street" [(ngModel)]="street" autocomplete="off" />
+                </div>
+              </div>
+              <div class="row">
+                <label class="col-md-2 col-form-label">邮编：</label>
+                <div class="col-md-6">
+                  <input type="text" class="postcode" name="postcode" [(ngModel)]="postcode" autocomplete="off" />
+                </div>
+              </div>
+              <div class="row">
+                <label class="col-md-2 col-form-label"></label>
+                <div class="col-md-6">
+                  <button class="btn btn-secondary btn-sm" (click)="saveAddress()">保存收货地址</button>
+                </div>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
-      <div class="row">
-        <label class="col-md-2 col-form-label">手机号码：</label>
-        <div class="col-md-6">
-          <input type="text" class="phone" name="phone" [(ngModel)]="phone" autocomplete="off" required />
+    </div>
+    <div class="address" *ngFor="let addressItem of addressList">
+      <h5>{{addressItem.receiver}} {{addressItem.province}}</h5>
+      <span class="del-address" (click)="delAddress(addressItem.aid, $event)">&times;</span>
+      <div class="address-info">
+        <p>
+          <span>收货人：</span>{{addressItem.receiver}}
+        </p>
+        <p>
+          <span>所在地区：</span>{{addressItem.province}}{{addressItem.city}}{{addressItem.county}}
+        </p>
+        <p>
+          <span>详细地址：</span>{{addressItem.street}}
+        </p>
+        <p>
+          <span>手机：</span>{{addressItem.phone}}
+        </p>
+        <p>
+          <span>邮编：</span>{{addressItem.postcode}}
+        </p>
+      </div>
+      <span class="edit-address" (click)="editAddress(addressItem)">
+        <fa-icon [icon]="['fas', 'edit']"></fa-icon>编辑
+      </span>
+    </div>
+    <div bsModal #editAddressModal="bs-modal" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title pull-left">编辑收货地址</h5>
+              <button type="button" class="close pull-right" (click)="editAddressModal.hide()">
+                <span>
+                  <fa-icon [icon]="['fas', 'times']"></fa-icon>
+                </span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form #editAddressForm="ngForm">
+                <div class="row">
+                  <label class="col-md-2 col-form-label">收货人：</label>
+                  <div class="col-md-6">
+                    <input type="text" class="receiver" name="receiver" [(ngModel)]="receiver" autocomplete="off" required />
+                  </div>
+                </div>
+                <div class="row">
+                  <label class="col-md-2 col-form-label">手机号码：</label>
+                  <div class="col-md-6">
+                    <input type="text" class="phone" name="phone" [(ngModel)]="phone" autocomplete="off" required />
+                  </div>
+                </div>
+                <div class="row">
+                  <label class="col-md-2 col-form-label">所在地区：</label>
+                  <div class="col-md-8">
+                    <select id="selProvince" name="province" [(ngModel)]="province" (change)="selectCity($event)">
+                      <option>-选择省份/自治区-</option>
+                      <ng-container *ngFor="let p of provinces">
+                        <option [value]="p">{{p}}</option>
+                      </ng-container>
+                    </select>
+                    <select id="selCity" name="city" [(ngModel)]="city" (change)="selectCounty($event)">
+                      <option>-选择城市/地区-</option>
+                      <ng-container *ngFor="let c of cities">
+                        <option [value]="c">{{c}}</option>
+                      </ng-container>
+                    </select>
+                    <select id="selCounty" name="county" [(ngModel)]="county">
+                      <option selected>-选择区县-</option>
+                      <ng-container *ngFor="let cn of counties">
+                        <option [value]="cn">{{cn}}</option>
+                      </ng-container>
+                    </select>
+                  </div>
+                </div>
+                <div class="row">
+                  <label class="col-md-2 col-form-label">详细地址：</label>
+                  <div class="col-md-6">
+                    <input type="text" class="street" name="street" [(ngModel)]="street" autocomplete="off" />
+                  </div>
+                </div>
+                <div class="row">
+                  <label class="col-md-2 col-form-label">邮编：</label>
+                  <div class="col-md-6">
+                    <input type="text" class="postcode" name="postcode" [(ngModel)]="postcode" autocomplete="off" />
+                  </div>
+                </div>
+                <div class="row">
+                  <label class="col-md-2 col-form-label"></label>
+                  <div class="col-md-6">
+                    <button class="btn btn-secondary btn-sm" (click)="saveAddress()">保存收货地址</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="row">
-        <label class="col-md-2 col-form-label">所在地区：</label>
-        <div class="col-md-8">
-          <select id="selProvince" name="province" [(ngModel)]="province" (change)="selectCity($event)">
-            <option>-选择省份/自治区-</option>
-            <ng-container *ngFor="let p of provinces">
-              <option [value]="p">{{p}}</option>
-            </ng-container>
-          </select>
-          <select id="selCity" name="city" [(ngModel)]="city" (change)="selectCounty($event)">
-            <option>-选择城市/地区-</option>
-            <ng-container *ngFor="let c of cities">
-              <option [value]="c">{{c}}</option>
-            </ng-container>
-          </select>
-          <select id="selCounty" name="county" [(ngModel)]="county">
-            <option selected>-选择区县-</option>
-            <ng-container *ngFor="let cn of counties">
-              <option [value]="cn">{{cn}}</option>
-            </ng-container>
-          </select>
-        </div>
-      </div>
-      <div class="row">
-        <label class="col-md-2 col-form-label">详细地址</label>
-        <div class="col-md-6">
-          <input type="text" class="street" name="street" [(ngModel)]="street" autocomplete="off" />
-        </div>
-      </div>
-      <div class="row">
-        <label class="col-md-2 col-form-label">邮编：</label>
-        <div class="col-md-6">
-          <input type="text" class="postcode" name="postcode" [(ngModel)]="postcode" autocomplete="off" />
-        </div>
-      </div>
-      <div class="row">
-        <label class="col-md-2 col-form-label"></label>
-        <div class="col-md-6">
-          <button class="btn btn-secondary btn-sm" (click)="saveAddress()">保存收货地址</button>
-        </div>
-      </div>
-    </form>
-
-
   </tab>
 </tabset>

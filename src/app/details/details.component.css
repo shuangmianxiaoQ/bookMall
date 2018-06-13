@@ -59,7 +59,7 @@
 }
 
 .goods-info>.sub-title {
-  margin: 8px 0;
+  margin: 12px 0;
   font-size: 14px;
   color: #333;
 }
@@ -74,7 +74,7 @@
 }
 
 .goods-info>.price {
-  margin: 10px 0;
+  margin: 12px 0;
   background-color: #EBEBEB;
   color: #8f8f8f;
 }

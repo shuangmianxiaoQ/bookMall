@@ -1,0 +1,81 @@
+<app-header></app-header>
+<div id="wrapper">
+  <div class="row">
+    <div class="col-md-11">
+      <p class="top-tip">
+        <span routerLink="/index">首页</span> > 订单结算
+      </p>
+    </div>
+    <div class="col-md-10 receiver">
+      <p>收货人信息</p>
+      <div class="row address">
+        <div class="col-md-3 address-info" *ngFor="let addressItem of addressList" (click)="selAddress(addressItem, $event)">
+          <h5>{{addressItem.receiver}}</h5>
+          <div class="address-detail">
+            <p>{{addressItem.phone}}</p>
+            <p [title]="addressItem.province+addressItem.city+addressItem.county">{{addressItem.province}}{{addressItem.city}}{{addressItem.county}}</p>
+            <p [title]="addressItem.street">{{addressItem.street}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-10 order-list">
+      <p>送货清单</p>
+      <span routerLink="/cart" class="edit-cart">返回修改购物车</span>
+      <div class="row list-thead">
+        <div class="col-md-4">商品信息</div>
+        <div class="col-md-1">单价</div>
+        <div class="col-md-1">数量</div>
+        <div class="col-md-2">小计</div>
+      </div>
+      <div class="row list-tbody" *ngFor="let orderItem of orderLsit">
+        <div class="col-md-4 goods-info">
+          <a (click)="jumpToDetail(orderItem.gid)">
+            <img [src]="'assets/'+orderItem.pic">
+          </a>
+          <p class="title" (click)="jumpToDetail(orderItem.gid)">{{orderItem.title}}</p>
+        </div>
+        <div class="col-md-1">{{orderItem.price | currency:'CNY':'symbol-narrow'}}</div>
+        <div class="col-md-1">
+          {{orderItem.count}}
+        </div>
+        <div class="col-md-2 sub-total">{{orderItem.price * orderItem.count | currency:'CNY':'symbol-narrow'}}</div>
+      </div>
+      <div class="row list-tfoot">
+        <div class="col-md-8"></div>
+        <div class="col-md-2 total-price">总计：
+          <span>{{totalPrice | currency:'CNY':'symbol-narrow'}}</span>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-10 total">
+      <div class="order-total">
+        <p>
+          <span>商品件数：</span>
+          <span>{{totalItems}}件</span>
+        </p>
+        <p>
+          <span>运费：</span>
+          <span>¥0.00</span>
+        </p>
+        <p>
+          <span>商品总价：</span>
+          <span>{{totalPrice | currency:'CNY':'symbol-narrow'}}</span>
+        </p>
+      </div>
+      <div class="order-receive">
+        <p>应付金额：
+          <span>{{totalPrice | currency:'CNY':'symbol-narrow'}}</span>
+        </p>
+        <p class="addressInfo">寄送至：
+          <span></span>
+        </p>
+        <p class="receiverInfo">收货人：
+          <span></span>
+        </p>
+      </div>
+      <button class="btn" (click)="submitOrder()">立即下单</button>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

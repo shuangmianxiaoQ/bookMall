@@ -2,18 +2,21 @@
 <div class="row">
   <div class="col-md-4" *ngFor="let topSaleItem of topSaleItems">
     <div class="pic">
-      <a [routerLink]="topSaleItem.href">
+      <a (click)="jumpToDetail(topSaleItem.href)">
         <img [src]="'assets/'+topSaleItem.pic" [title]="topSaleItem.title">
       </a>
     </div>
     <div class="txt">
       <p class="name">
-        <a [routerLink]="topSaleItem.href" [title]="topSaleItem.title">{{topSaleItem.gname}}</a>
+        <a (click)="jumpToDetail(topSaleItem.href)" [title]="topSaleItem.title">{{topSaleItem.gname}}</a>
       </p>
       <p class="author">{{topSaleItem.author}}</p>
       <p class="publishing">{{topSaleItem.publishing}}</p>
       <p class="publish_time">{{topSaleItem.publish_time | timestamp | date:'yyyy-MM'}}</p>
-      <p class="price">{{topSaleItem.price | currency:'CNY':'symbol-narrow'}}</p>
+      <p class="price">
+        {{topSaleItem.price * 0.8 | currency:'CNY':'symbol-narrow'}}
+        <span>{{topSaleItem.price | currency:'CNY':'symbol-narrow'}}</span>
+      </p>
     </div>
   </div>
 </div>

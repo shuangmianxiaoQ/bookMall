@@ -1,0 +1,157 @@
+#wrapper {
+  width: 80%;
+  margin: 0 auto;
+  background-color: #fff;
+}
+
+.row {
+  margin: 0;
+}
+
+.top-tip {
+  font-size: 14px;
+  padding: 15px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.top-tip>span {
+  cursor: pointer;
+}
+
+.top-tip>span:hover {
+  color: #e52222;
+}
+
+.receiver, .order-list {
+  border: 1px solid #ddd;
+  border-radius: 2px;
+  padding: 0;
+  margin: 15px 0 10px 15px;
+  box-shadow: 3px 3px 6px #ccc;
+}
+
+.receiver>p, .order-list>p {
+  font-size: 18px;
+  font-weight: bolder;
+  padding: 15px;
+  color: #333;
+}
+
+.address {
+  padding: 0px 25px;
+}
+
+.address-info {
+  padding: 12px;
+  background: #fbfbfb;
+  margin: 0 15px 20px 0;
+  color: #000;
+  border: 2px solid #e6e4e2;
+  cursor: pointer;
+}
+
+.address-info>h5 {
+  font-weight: bold;
+  border-bottom: 1px solid #e6e6e6;
+  padding: 0 0 4px 4px;
+  font-size: 15px;
+}
+
+.address-detail {
+  line-height: 20px;
+  padding: 8px 0;
+  color: #333;
+}
+
+.list-thead, .list-tbody, .list-tfoot {
+  text-align: center;
+  color: #333;
+}
+
+.list-tbody {
+  padding: 10px 0;
+  line-height: 54px;
+}
+
+.goods-info {
+  text-align: left;
+}
+
+.goods-info img {
+  vertical-align: middle;
+}
+
+.title {
+  display: inline-block;
+}
+
+.list-tfoot {
+  padding: 10px 0;
+}
+
+.total-price>span {
+  color: #ff2832;
+  font-size: 14px;
+  font-weight: bolder;
+}
+
+.edit-cart {
+  position: absolute;
+  right: 40px;
+  top: 20px;
+  color: #1a66b3;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.edit-cart:hover {
+  color: #e52222;
+  text-decoration: underline;
+}
+
+.total {
+  margin: 20px;
+}
+
+.total p {
+  text-align: right;
+}
+
+.order-total {
+  line-height: 20px;
+  font-size: 13px;
+}
+
+.order-total>p>span {
+  display: inline-block;
+  width: 10%;
+}
+
+.order-total>p>span:nth-child(2) {
+  color: #333;
+}
+
+.order-receive {
+  padding: 15px 10px 15px 0;
+  line-height: 22px;
+  border-top: 1px solid #e6e6e6;
+  background-color: #f4f4f4;
+  margin: 10px 0;
+}
+
+.order-receive>p:first-child>span {
+  color: #ff2832;
+  font-size: 22px;
+}
+
+.addressInfo, .receiverInfo {
+  color: #999;
+}
+
+.btn {
+  float: right;
+  width: 125px;
+  background-color: #ff2832;
+  color: #fff;
+  border-radius: 2px;
+}

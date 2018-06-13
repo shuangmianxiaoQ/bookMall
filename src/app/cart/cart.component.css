@@ -118,3 +118,7 @@ input[type="checkbox"] {
 .goods-info {
   text-align: left;
 }
+
+.goods-info>a, .goods-info>span {
+  cursor: pointer;
+}

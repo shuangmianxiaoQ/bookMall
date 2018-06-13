@@ -1,13 +1,16 @@
 <h5>新书上架</h5>
 <div class="row">
   <div class="col-md-3" *ngFor="let newArrivalItem of newArrivalItems">
-    <a [routerLink]="newArrivalItem.href">
+    <a (click)="jumpToDetail(newArrivalItem.href)">
       <img [src]="'assets/'+newArrivalItem.pic" [title]="newArrivalItem.title">
     </a>
     <p class="name">
-      <a [routerLink]="newArrivalItem.href" [title]="newArrivalItem.title">{{newArrivalItem.gname}}</a>
+      <a (click)="jumpToDetail(newArrivalItem.href)" [title]="newArrivalItem.title">{{newArrivalItem.gname}}</a>
     </p>
     <p class="author">{{newArrivalItem.author}}</p>
-    <p class="price">{{newArrivalItem.price | currency:'CNY':'symbol-narrow'}}</p>
+    <p class="price">
+      {{newArrivalItem.price * 0.8 | currency:'CNY':'symbol-narrow'}}
+      <span>{{newArrivalItem.price | currency:'CNY':'symbol-narrow'}}</span>
+    </p>
   </div>
 </div>

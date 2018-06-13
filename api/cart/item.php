@@ -6,10 +6,16 @@
 
   $output = [
     'cartItems' => null,
-    'total' => null
+    'total' => null,
+    'totalItems' => 0
   ];
 
-  $sql = "SELECT c.cid,g.gid,g.title,g.discount_price price,c.count FROM bm_shopping_cart c,bm_goods g WHERE c.gid=g.gid AND uid=$uid";
+  $sql = "SELECT COUNT(*) FROM bm_shopping_cart WHERE uid=$uid";
+  $result = mysqli_query($conn, $sql);
+  $rows = mysqli_fetch_row($result);
+  $output['totalItems'] = intval($rows[0]);
+
+  $sql = "SELECT c.cid,g.gid,g.gname,g.title,g.discount_price price,c.count FROM bm_shopping_cart c,bm_goods g WHERE c.gid=g.gid AND uid=$uid";
   $result = mysqli_query($conn, $sql);
 
   if(!$result) {

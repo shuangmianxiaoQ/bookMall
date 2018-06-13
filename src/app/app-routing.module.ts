@@ -14,12 +14,17 @@ import {MyInfoComponent} from './user-center/user-info/my-info/my-info.component
 import {UserSafetyComponent} from './user-center/user-info/user-safety/user-safety.component';
 import {MyAddressComponent} from './user-center/user-info/my-address/my-address.component';
 import {CartComponent} from './cart/cart.component';
+import {OrderComponent} from './order/order.component';
+import {PayComponent} from './pay/pay.component';
+import {MyOrderComponent} from './user-center/order-info/my-order/my-order.component';
+import {UnpaidOrderComponent} from './user-center/order-info/unpaid-order/unpaid-order.component';
+import {UnacceptedOrderComponent} from './user-center/order-info/unaccepted-order/unaccepted-order.component';
+import {CancelledOrderComponent} from './user-center/order-info/cancelled-order/cancelled-order.component';
 
 const routes : Routes = [
   {
     path: '',
-    redirectTo: '/index',
-    pathMatch: 'full'
+    component: IndexComponent
   }, {
     path: 'login',
     component: LoginComponent
@@ -34,8 +39,8 @@ const routes : Routes = [
     component: ListComponent,
     children: [
       {
-        path: '',
-        redirectTo: 'noList',
+        path: 'searchList',
+        redirectTo: 'searchList/ ',
         pathMatch: 'full'
       }, {
         path: 'searchList/:keyword',
@@ -61,11 +66,29 @@ const routes : Routes = [
       }, {
         path: 'userInfo/myAdderss',
         component: MyAddressComponent
+      }, {
+        path: 'orderInfo/myOrder',
+        component: MyOrderComponent
+      }, {
+        path: 'orderInfo/unpaidOrder',
+        component: UnpaidOrderComponent
+      }, {
+        path: 'orderInfo/unacceptedOrder',
+        component: UnacceptedOrderComponent
+      }, {
+        path: 'orderInfo/cancelledOrder',
+        component: CancelledOrderComponent
       }
     ]
   }, {
     path: 'cart',
     component: CartComponent
+  }, {
+    path: 'order',
+    component: OrderComponent
+  }, {
+    path: 'pay/:orderId',
+    component: PayComponent
   }, {
     path: '**',
     component: NotFoundComponent

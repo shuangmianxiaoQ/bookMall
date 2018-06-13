@@ -61,6 +61,7 @@
           <input type="email" id="email"
             [(ngModel)]="email" name="email"
             placeholder="请输入邮箱地址"
+            autocomplete="off"
             (keyup)="onKeyEmail()"
             (change)="checkEmail(userEmail.value)"
             #userEmail />

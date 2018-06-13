@@ -13,8 +13,8 @@ h5 {
   text-align: center;
 }
 
-.col-md-3>img {
-  width: 80%;
+.col-md-3>a, .name>a {
+  cursor: pointer;
 }
 
 .name {
@@ -37,4 +37,12 @@ h5 {
 .price {
   color: #fa2846;
   margin-top: 5px;
+  font-weight: bolder;
+}
+
+.price>span {
+  text-decoration: line-through;
+  color: #aaa;
+  margin-left: 8px;
+  font-weight: normal;
 }

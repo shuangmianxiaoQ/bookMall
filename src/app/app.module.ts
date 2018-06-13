@@ -7,6 +7,10 @@ import {ModalModule} from 'ngx-bootstrap/modal';
 import {CarouselModule} from 'ngx-bootstrap/carousel';
 import {PaginationModule} from 'ngx-bootstrap/pagination';
 import {TabsModule} from 'ngx-bootstrap/tabs';
+import {BsDropdownModule} from 'ngx-bootstrap/dropdown';
+import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
+import {library} from '@fortawesome/fontawesome-svg-core';
+import {fas} from '@fortawesome/free-solid-svg-icons';
 
 import {AppComponent} from './app.component';
 import {LoginComponent} from './login/login.component';
@@ -33,7 +37,15 @@ import {UserCenterComponent} from './user-center/user-center.component';
 import {MyInfoComponent} from './user-center/user-info/my-info/my-info.component';
 import {UserSafetyComponent} from './user-center/user-info/user-safety/user-safety.component';
 import {MyAddressComponent} from './user-center/user-info/my-address/my-address.component';
-import { CartComponent } from './cart/cart.component';
+import {CartComponent} from './cart/cart.component';
+import {OrderComponent} from './order/order.component';
+import {PayComponent} from './pay/pay.component';
+import {MyOrderComponent} from './user-center/order-info/my-order/my-order.component';
+import {UnpaidOrderComponent} from './user-center/order-info/unpaid-order/unpaid-order.component';
+import {UnacceptedOrderComponent} from './user-center/order-info/unaccepted-order/unaccepted-order.component';
+import {CancelledOrderComponent} from './user-center/order-info/cancelled-order/cancelled-order.component';
+
+library.add(fas);
 
 @NgModule({
   declarations: [
@@ -62,13 +74,21 @@ import { CartComponent } from './cart/cart.component';
     MyInfoComponent,
     UserSafetyComponent,
     MyAddressComponent,
-    CartComponent
+    CartComponent,
+    OrderComponent,
+    PayComponent,
+    MyOrderComponent,
+    UnpaidOrderComponent,
+    UnacceptedOrderComponent,
+    CancelledOrderComponent
   ],
   imports: [
     BrowserModule, FormsModule, AppRoutingModule, HttpClientModule, ModalModule.forRoot(),
     CarouselModule.forRoot(),
     PaginationModule.forRoot(),
-    TabsModule.forRoot()
+    TabsModule.forRoot(),
+    BsDropdownModule.forRoot(),
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -15,6 +15,7 @@ export class HeaderComponent implements OnInit {
   suggestItems: string[] = [];
   itemsLength: number = 0;
   userInfo: any = null;
+  keyword: string = '';
 
   constructor(
     private http: HttpService,
@@ -23,6 +24,10 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {
     this.userInfo = JSON.parse(sessionStorage.getItem('userInfo'));
+  }
+
+  jumpToDetail(gid, gname) {
+    open('details/'+gid, '_blank');
   }
 
   // 获取JSON数组的长度
@@ -47,11 +52,9 @@ export class HeaderComponent implements OnInit {
 
   searchKey(kw) {
     if(kw) {
-      this.router.navigateByUrl('list/searchList/'+kw);
-      // location.reload();
+      open('list/searchList/'+kw, '_blank');
     } else {
-      this.router.navigateByUrl('list/searchList/'+' ');
-      // location.reload();
+      open('list/searchList', '_blank');
     }
   }
 

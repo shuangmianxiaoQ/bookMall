@@ -3,6 +3,8 @@ import { HttpService } from '../http.service';
 import { HttpParams } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
 
+const userInfo = JSON.parse(sessionStorage.getItem('userInfo'));
+
 @Component({
   selector: 'app-details',
   templateUrl: './details.component.html',
@@ -48,15 +50,35 @@ export class DetailsComponent implements OnInit {
     $('.preview>.spec img').attr('src', 'assets/'+pic);
   }
 
+  modifyCount(boolean) {
+    if(boolean) {
+      this.count++;
+    } else {
+      if(this.count>1) {
+        this.count--;
+      }
+    }
+  }
+
   addToCart() {
-    let httpOptions = {
-      params: new HttpParams().set('uid', JSON.parse(sessionStorage.getItem('userInfo')).uid)
-        .set('gid', this.gid)
-        .set('count', this.count)
-    };
-    this.http.sendGetMethod(this.addCartUrl, httpOptions)
-      .subscribe((data: any) => {
-        console.log(data);
-      })
+    if(!userInfo) {
+      alert('用户未登录');
+    } else {
+      let httpOptions = {
+        params: new HttpParams().set('uid', userInfo.uid).set('gid', this.gid).set('count', this.count)
+      };
+      this.http.sendGetMethod(this.addCartUrl, httpOptions)
+        .subscribe((data: any) => {
+          alert(data.msg);
+        })
+    }
+  }
+
+  buy() {
+    if(!userInfo) {
+      alert('用户未登录');
+    } else {
+
+    }
   }
 }
