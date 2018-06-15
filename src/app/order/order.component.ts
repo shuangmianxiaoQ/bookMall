@@ -86,6 +86,7 @@ export class OrderComponent implements OnInit {
       let httpOptions = {
         params: new HttpParams().set('uid', userInfo.uid)
           .set('aid', this.addressId)
+          .set('total_price', this.totalPrice)
           .set('status', '1')
           .set('order_time', nowTimeStamp)
       }

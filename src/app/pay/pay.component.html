@@ -6,13 +6,13 @@
         <span routerLink="/index">首页</span> > 支付中心
       </p>
     </div>
-    <div class="col-md-10 order-success" *ngIf="orderAddress">
+    <div class="col-md-10 order-success" *ngIf="addressInfo">
       <span>
         <fa-icon [icon]="['fas', 'check-circle']" size="8x"></fa-icon>
       </span>
       <h5>订单提交成功，请尽快付款！</h5>
-      <p class="receive-info">收货信息：{{orderAddress.receiver}} {{orderAddress.phone}} {{orderAddress.province}}{{orderAddress.city}}{{orderAddress.county}}
-        {{orderAddress.street}}
+      <p class="receive-info">收货信息：{{addressInfo.receiver}} {{addressInfo.phone}} {{addressInfo.province}}{{addressInfo.city}}{{addressInfo.county}}
+        {{addressInfo.street}}
       </p>
       <p class="goods-info">商品信息：
         <span *ngFor="let orderItem of orderLsit">《{{orderItem.gname}}》</span>

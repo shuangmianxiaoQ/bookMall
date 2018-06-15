@@ -21,12 +21,11 @@ export class PayComponent implements OnInit {
     ignoreBackdropClick: true
   }
 
-  orderAddressUrl: string = `${this.http.baseUrl}order/item.php`;
-  orderListUrl: string = `${this.http.baseUrl}cart/item.php`;
+  orderItemUrl: string = `${this.http.baseUrl}order/item.php`;
   orderPayUrl: string = `${this.http.baseUrl}order/pay.php`;
 
   oid: any = null;
-  orderAddress: any = null;
+  addressInfo: any = null;
   orderLsit: string[] = [];
   totalPrice: string = '';
 
@@ -41,11 +40,10 @@ export class PayComponent implements OnInit {
     this.aRoute.params.subscribe((data: any) => {
       this.oid = data.orderId
     })
-    this.getOrderAddress();
-    this.getOrderList();
+    this.getOrderItem();
   }
 
-  getOrderAddress() {
+  getOrderItem() {
     const userInfo = JSON.parse(sessionStorage.getItem('userInfo'));
     if(!userInfo) {
       alert('用户未登录');
@@ -53,25 +51,10 @@ export class PayComponent implements OnInit {
       let httpOptions = {
         params: new HttpParams().set('uid', userInfo.uid).set('oid', this.oid)
       }
-      this.http.sendGetMethod(this.orderAddressUrl, httpOptions)
+      this.http.sendGetMethod(this.orderItemUrl, httpOptions)
         .subscribe((data: any) => {
-          this.orderAddress = data;
-        })
-    }
-  }
-
-  getOrderList() {
-    const userInfo = JSON.parse(sessionStorage.getItem('userInfo'));
-    if(!userInfo) {
-      alert('用户未登录');
-    } else {
-      let httpOptions = {
-        params: new HttpParams().set('uid', userInfo.uid)
-      }
-      this.http.sendGetMethod(this.orderListUrl, httpOptions)
-        .subscribe((data: any) => {
-          console.log(data);
-          this.orderLsit = data['cartItems'];
+          this.addressInfo = data['addressInfo'];
+          this.orderLsit = data['orderItems'];
           this.totalPrice = data['total'];
         })
     }
@@ -84,14 +67,12 @@ export class PayComponent implements OnInit {
     this.http.sendGetMethod(this.orderPayUrl, httpOptions)
       .subscribe((data: any) => {
         console.log(data);
-        alert(data.msg);
       })
   }
 
   selPayment($event) {
     let paymentElement = $('.pay-platform .col-md-3, .fast-pay .col-md-3, .cod .col-md-3');
     paymentElement.each(function() {
-      console.log($(this).css('border'));
       $(this).css('border', '1px solid #e0e0e0');
     })
     $(event.currentTarget).css('border', '1px solid #ff6700');
@@ -102,6 +83,7 @@ export class PayComponent implements OnInit {
       template,
       Object.assign(this.config, { class: 'pay-modal' })
     );
+    this.orderPay();
   }
 
   goShopping() {

@@ -13,6 +13,13 @@
     if($count !== 1) {
       echo('{"code": 201, "msg": "支付失败"}');
     } else {
-      echo('{"code": 200, "msg": "支付成功"}');
+      $sql = "DELETE FROM bm_shopping_cart";
+      $result = mysqli_query($conn, $sql);
+      if($result) {
+        $count = mysqli_affected_rows($conn);
+        if($count > 0) {
+          echo('{"code": 200, "msg": "支付成功，并清空购物车"}');
+        }
+      }
     }
   }

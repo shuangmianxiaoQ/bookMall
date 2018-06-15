@@ -1,0 +1,22 @@
+.tool-tip {
+  border: 1px solid #ddd;
+  padding: 0;
+  border-radius: 2px;
+  font-size: 12px;
+  line-height: 20px;
+}
+
+.tool-tip.show {
+  opacity: 1;
+}
+
+.tool-tip .tooltip-inner {
+  background-color: #fff;
+  color: #333;
+  padding: 15px;
+  max-width: 240px;
+}
+
+.tool-tip .tooltip-arrow::before {
+  border-right-color: #fff;
+}
