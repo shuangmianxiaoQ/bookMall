@@ -14,7 +14,7 @@
   } else {
     $count = mysqli_affected_rows($conn);
     if($count !== 1) {
-      echo('{"code": 201, "msg": "旧密码输入错误"}');
+      echo('{"code": 201, "msg": "密码未修改"}');
     } else {
       echo('{"code": 200, "msg": "修改成功"}');
     }

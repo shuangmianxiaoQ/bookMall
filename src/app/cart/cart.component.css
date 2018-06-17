@@ -38,10 +38,13 @@
 }
 
 .cart-tbody {
-  line-height: 54px;
   padding: 10px 0;
   border: 1px solid #ddd;
   margin-bottom: 5px;
+}
+
+.cart-tbody>div:not(:first-child) {
+  line-height: 54px;
 }
 
 .cart-tfoot {
@@ -119,6 +122,40 @@ input[type="checkbox"] {
   text-align: left;
 }
 
-.goods-info>a, .goods-info>span {
+.goods-info>a>img {
+  vertical-align: middle;
+}
+
+.goods-info>a, .title {
   cursor: pointer;
+}
+
+.title {
+  display: inline-block;
+  width: 75%;
+}
+
+.title:hover {
+  color: #e52222;
+}
+
+.modal-body p {
+  font-size: 16px;
+  margin-bottom: 1rem;
+}
+
+.modal-body button {
+  width: 60px;
+  margin: 0 10px;
+}
+
+.cart-empty>h2 {
+  margin: 50px 100px 20px;
+  font-size: 36px;
+  color: #b0b0b0;
+}
+
+.cart-empty>button {
+  margin: 0 0 40px 200px;
+  width: 120px;
 }

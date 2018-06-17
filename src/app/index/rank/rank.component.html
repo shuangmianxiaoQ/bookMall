@@ -3,7 +3,7 @@
   <li *ngFor="let newRankItem of newRankItems; let i=index">
     <span>{{i+1}}</span>
     <a (click)="jumpToDetail(newRankItem.href)">
-      <img [src]="'assets/'+newRankItem.pic">
+      <img [src]="'http://localhost/bookMallPic/'+newRankItem.pic">
     </a>
     <div class="txt">
       <p class="name">
@@ -21,7 +21,7 @@
   <li *ngFor="let sellRankItem of sellRankItems; let i=index">
     <span>{{i+1}}</span>
     <a (click)="jumpToDetail(sellRankItem.href)">
-      <img [src]="'assets/'+sellRankItem.pic">
+      <img [src]="'http://localhost/bookMallPic/'+sellRankItem.pic">
     </a>
     <div class="txt">
       <p class="name">

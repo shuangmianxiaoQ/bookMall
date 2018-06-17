@@ -18,10 +18,10 @@
       <div class="col-md-6">
         <div class="row">
           <div class="col-md-12 order-item" *ngFor="let orderItem of all.orderItems">
-            <a href="#">
-              <img [src]="'assets/'+orderItem.pic">
+            <a (click)="jumpToDetail(orderItem.gid)">
+              <img [src]="'http://localhost/bookMallPic/'+orderItem.pic">
             </a>
-            <p class="title" [title]="orderItem.title">{{orderItem.title}}</p>
+            <p class="title" (click)="jumpToDetail(orderItem.gid)" [title]="orderItem.title">{{orderItem.title}}</p>
             <span>x{{orderItem.count}}</span>
           </div>
         </div>
@@ -39,13 +39,27 @@
       </div>
       <div class="col-md-2 operate1" *ngIf="all.status==1">
         <button [routerLink]="'/pay/'+all.oid">付款</button>
-        <p (click)="cancelOrder(all.oid)">取消订单</p>
+        <p (click)="openModal1(template1, all.oid)">取消订单</p>
+        <ng-template #template1>
+          <div class="modal-body text-center">
+            <p>您确定要取消该订单吗？</p>
+            <button type="button" class="btn btn-danger btn-sm" (click)="ok1()">确定</button>
+            <button type="button" class="btn btn-secondary btn-sm" (click)="cancel()">取消</button>
+          </div>
+        </ng-template>
       </div>
       <div class="col-md-2 operate2" *ngIf="all.status==2">
         <button routerLink="/index">继续购物</button>
       </div>
       <div class="col-md-2 operate3" *ngIf="all.status==3">
-        <button>删除</button>
+        <button (click)="openModal2(template2, all.oid)">删除</button>
+        <ng-template #template2>
+          <div class="modal-body text-center">
+            <p>您确定要删除该订单吗？</p>
+            <button type="button" class="btn btn-danger btn-sm" (click)="ok2()">确定</button>
+            <button type="button" class="btn btn-secondary btn-sm" (click)="cancel()">取消</button>
+          </div>
+        </ng-template>
       </div>
     </div>
   </tab>

@@ -1,5 +1,47 @@
 <tabset>
-    <tab heading="待支付订单">
-  
-    </tab>
-  </tabset>
+  <tab heading="待支付订单">
+    <div class="row order-thead">
+      <div class="col-md-6">订单详情</div>
+      <div class="col-md-2">金额</div>
+      <div class="col-md-2">订单状态 </div>
+      <div class="col-md-2">操作</div>
+    </div>
+    <div class="row order-tbody" *ngFor="let unpaid of unpaidOrder">
+      <div class="col-md-12 order-tbody-head">
+        <p class="order-time">下单时间：
+          <span>{{unpaid.order_time | date:'yyyy-MM-dd HH:mm:ss'}}</span>
+        </p>
+        <p class="receiver">收货人：  
+          <span [tooltip]="unpaid.receiver+' '+unpaid.phone+' '+unpaid.province+unpaid.city+unpaid.county+unpaid.street" containerClass="tool-tip" placement="right">{{unpaid.receiver}}</span>
+        </p>
+      </div>
+      <div class="col-md-6">
+        <div class="row">
+          <div class="col-md-12 order-item" *ngFor="let orderItem of unpaid.orderItems">
+            <a (click)="jumpToDetail(orderItem.gid)">
+              <img [src]="'http://localhost/bookMallPic/'+orderItem.pic">
+            </a>
+            <p class="title" (click)="jumpToDetail(orderItem.gid)" [title]="orderItem.title">{{orderItem.title}}</p>
+            <span>x{{orderItem.count}}</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-2 total-price">总额
+        <br>¥{{unpaid.total_price}}</div>
+      <div class="col-md-2 status" *ngIf="unpaid.status">
+        <span tooltip="您已提交了订单，请尽快支付！" placement="bottom">等待付款</span>
+      </div>
+      <div class="col-md-2 operate" *ngIf="unpaid.status">
+        <button [routerLink]="'/pay/'+unpaid.oid">付款</button>
+        <p (click)="openModal(template, unpaid.oid)">取消订单</p>
+        <ng-template #template>
+          <div class="modal-body text-center">
+            <p>您确定要取消该订单吗？</p>
+            <button type="button" class="btn btn-danger btn-sm" (click)="ok()">确定</button>
+            <button type="button" class="btn btn-secondary btn-sm" (click)="cancel()">取消</button>
+          </div>
+        </ng-template>
+      </div>
+    </div>
+  </tab>
+</tabset>

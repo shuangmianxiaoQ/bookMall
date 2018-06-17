@@ -26,7 +26,7 @@
     $output['all'] = $rows;
   }
 
-  $sql = "SELECT * FROM bm_order o,bm_user_address a WHERE o.aid=a.aid AND o.uid=$uid AND status=1";
+  $sql = "SELECT * FROM bm_order o,bm_user_address a WHERE o.aid=a.aid AND o.uid=$uid AND status=1 ORDER BY order_time DESC";
   $result = mysqli_query($conn, $sql);
   if(!$result) {
     echo("请检查SQL语句：$sql");
@@ -41,7 +41,7 @@
     $output['unpaid'] = $rows;
   }
 
-  $sql = "SELECT * FROM bm_order o,bm_user_address a WHERE o.aid=a.aid AND o.uid=$uid AND status=2";
+  $sql = "SELECT * FROM bm_order o,bm_user_address a WHERE o.aid=a.aid AND o.uid=$uid AND status=2 ORDER BY order_time DESC";
   $result = mysqli_query($conn, $sql);
   if(!$result) {
     echo("请检查SQL语句：$sql");
@@ -56,7 +56,7 @@
     $output['unaccepted'] = $rows;
   }
 
-  $sql = "SELECT * FROM bm_order o,bm_user_address a WHERE o.aid=a.aid AND o.uid=$uid AND status=3";
+  $sql = "SELECT * FROM bm_order o,bm_user_address a WHERE o.aid=a.aid AND o.uid=$uid AND status=3 ORDER BY order_time DESC";
   $result = mysqli_query($conn, $sql);
   if(!$result) {
     echo("请检查SQL语句：$sql");

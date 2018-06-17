@@ -47,7 +47,7 @@ export class DetailsComponent implements OnInit {
   }
 
   changePic(pic) {
-    $('.preview>.spec img').attr('src', 'assets/'+pic);
+    $('.preview>.spec img').attr('src', 'http://localhost/bookMallPic/'+pic);
   }
 
   modifyCount(boolean) {

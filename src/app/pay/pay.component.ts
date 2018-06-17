@@ -2,7 +2,6 @@ import { Component, OnInit, TemplateRef } from '@angular/core';
 import { HttpService } from '../http.service';
 import { HttpParams } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
-import { getOrCreateNodeInjector } from '@angular/core/src/render3/instructions';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 import { Router } from '@angular/router';
@@ -28,6 +27,7 @@ export class PayComponent implements OnInit {
   addressInfo: any = null;
   orderLsit: string[] = [];
   totalPrice: string = '';
+  isSelPayment: boolean = false;
 
   constructor(
     private http: HttpService,
@@ -60,14 +60,18 @@ export class PayComponent implements OnInit {
     }
   }
 
-  orderPay() {
-    let httpOptions = {
-      params: new HttpParams().set('oid', this.oid)
+  orderPay(template: TemplateRef<any>) {
+    if(!this.isSelPayment) {
+      alert('请先选择支付方式，再点击支付！');
+    } else {
+      let httpOptions = {
+        params: new HttpParams().set('oid', this.oid)
+      }
+      this.http.sendGetMethod(this.orderPayUrl, httpOptions)
+        .subscribe((data: any) => {
+        })
+      this.openModal(template);
     }
-    this.http.sendGetMethod(this.orderPayUrl, httpOptions)
-      .subscribe((data: any) => {
-        console.log(data);
-      })
   }
 
   selPayment($event) {
@@ -76,14 +80,14 @@ export class PayComponent implements OnInit {
       $(this).css('border', '1px solid #e0e0e0');
     })
     $(event.currentTarget).css('border', '1px solid #ff6700');
+    this.isSelPayment = true;
   }
 
-  openModal(template: TemplateRef<any>) {
+  openModal(template) {
     this.modalRef = this.modalService.show(
       template,
       Object.assign(this.config, { class: 'pay-modal' })
     );
-    this.orderPay();
   }
 
   goShopping() {

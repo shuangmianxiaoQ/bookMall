@@ -46,6 +46,10 @@
   position: relative;
 }
 
+.order-item>a {
+  cursor: pointer;
+}
+
 .order-item img {
   vertical-align: middle;
 }
@@ -61,6 +65,8 @@
   display: inline-block;
   cursor: pointer;
   color: #333;
+  width: 60%;
+  cursor: pointer;
 }
 
 .title:hover {
@@ -149,4 +155,14 @@
   color: #e4393c;
   border-color: #e4393c;
   background: #fff;
+}
+
+.modal-body p {
+  font-size: 16px;
+  margin-bottom: 1rem;
+}
+
+.modal-body button {
+  width: 60px;
+  margin: 0 10px;
 }

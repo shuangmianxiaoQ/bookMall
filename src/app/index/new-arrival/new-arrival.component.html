@@ -2,7 +2,7 @@
 <div class="row">
   <div class="col-md-3" *ngFor="let newArrivalItem of newArrivalItems">
     <a (click)="jumpToDetail(newArrivalItem.href)">
-      <img [src]="'assets/'+newArrivalItem.pic" [title]="newArrivalItem.title">
+      <img [src]="'http://localhost/bookMallPic/'+newArrivalItem.pic" [title]="newArrivalItem.title">
     </a>
     <p class="name">
       <a (click)="jumpToDetail(newArrivalItem.href)" [title]="newArrivalItem.title">{{newArrivalItem.gname}}</a>

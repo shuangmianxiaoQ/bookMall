@@ -3,7 +3,7 @@
   <div class="col-md-12" *ngIf="firstRecommendedItem">
     <div class="pic">
       <a (click)="jumpToDetail(firstRecommendedItem.href)">
-        <img [src]="'assets/'+firstRecommendedItem.pic" [title]="firstRecommendedItem.title">
+        <img [src]="'http://localhost/bookMallPic/'+firstRecommendedItem.pic" [title]="firstRecommendedItem.title">
       </a>
     </div>
     <div class="txt">
@@ -21,7 +21,7 @@
   <div class="col-md-3" *ngFor="let restRecommendedItem of restRecommendedItems">
     <div class="pic">
       <a (click)="jumpToDetail(restRecommendedItem.href)">
-        <img [src]="'assets/'+restRecommendedItem.pic" [title]="restRecommendedItem.title">
+        <img [src]="'http://localhost/bookMallPic/'+restRecommendedItem.pic" [title]="restRecommendedItem.title">
       </a>
     </div>
     <div class="text">

@@ -2,7 +2,6 @@
   require_once('../init.php');
 
   session_start();
-  @$uid = $_REQUEST['uid'] or die('{"code":401,"msg":"用户未登录"}');
   @$cid = $_REQUEST['cid'] or die('{"code":402,"msg":"购物车条目id是必需的"}');
   @$count = $_REQUEST['count'] or die('{"code":403,"msg":"商品数量是必需的"}');
 

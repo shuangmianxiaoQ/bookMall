@@ -20,25 +20,35 @@ export class MyInfoComponent implements OnInit {
   }
   
   getUserInfo() {
-    let httpOptions = {
-      params: new HttpParams().set('uid', JSON.parse(sessionStorage.getItem('userInfo')).uid)
-    };
-    this.http.sendGetMethod(this.getUserUrl, httpOptions)
-      .subscribe((data: any) => {
-        this.userInfo = data;
-      });
+    const userInfo = JSON.parse(sessionStorage.getItem('userInfo'));
+    if(!userInfo) {
+      alert('用户未登录！')
+    } else {
+      let httpOptions = {
+        params: new HttpParams().set('uid', userInfo.uid)
+      };
+      this.http.sendGetMethod(this.getUserUrl, httpOptions)
+        .subscribe((data: any) => {
+          this.userInfo = data;
+        });
+    }
   }
 
   saveBasic() {
-    let httpOptions = {
-      params: new HttpParams().set('uid', JSON.parse(sessionStorage.getItem('userInfo')).uid)
-        .set('user_name', this.userInfo.user_name)
-        .set('phone', this.userInfo.phone)
-        .set('gender', this.userInfo.gender)
-    };
-    this.http.sendGetMethod(this.updateBasicUrl, httpOptions)
-      .subscribe((data: any) => {
-        alert(data.msg)
-      })
+    if(this.userInfo.user_name === ''  || this.userInfo.phone === '') {
+      alert('请填写完整信息');
+    } else  {
+      const userInfo = JSON.parse(sessionStorage.getItem('userInfo'));
+      let httpOptions = {
+        params: new HttpParams().set('uid', userInfo.uid)
+          .set('user_name', this.userInfo.user_name)
+          .set('phone', this.userInfo.phone)
+          .set('gender', this.userInfo.gender)
+      };
+      this.http.sendGetMethod(this.updateBasicUrl, httpOptions)
+        .subscribe((data: any) => {
+          alert(data.msg);
+        })
+    }
   }
 }

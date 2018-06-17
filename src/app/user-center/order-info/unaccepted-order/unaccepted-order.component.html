@@ -1,5 +1,39 @@
 <tabset>
-    <tab heading="待收货订单">
-  
-    </tab>
-  </tabset>
+  <tab heading="待收货订单">
+    <div class="row order-thead">
+      <div class="col-md-6">订单详情</div>
+      <div class="col-md-2">金额</div>
+      <div class="col-md-2">订单状态 </div>
+      <div class="col-md-2">操作</div>
+    </div>
+    <div class="row order-tbody" *ngFor="let unaccepted of unacceptedOrder">
+      <div class="col-md-12 order-tbody-head">
+        <p class="order-time">下单时间：
+          <span>{{unaccepted.order_time | date:'yyyy-MM-dd HH:mm:ss'}}</span>
+        </p>
+        <p class="receiver">收货人：
+          <span [tooltip]="unaccepted.receiver+' '+unaccepted.phone+' '+unaccepted.province+unaccepted.city+unaccepted.county+unaccepted.street" containerClass="tool-tip" placement="right">{{unaccepted.receiver}}</span>
+        </p>
+      </div>
+      <div class="col-md-6">
+        <div class="row">
+          <div class="col-md-12 order-item" *ngFor="let orderItem of unaccepted.orderItems">
+            <a (click)="jumpToDetail(orderItem.gid)">
+              <img [src]="'http://localhost/bookMallPic/'+orderItem.pic">
+            </a>
+            <p class="title" (click)="jumpToDetail(orderItem.gid)" [title]="orderItem.title">{{orderItem.title}}</p>
+            <span>x{{orderItem.count}}</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-2 total-price">总额
+        <br>¥{{unaccepted.total_price}}</div>
+      <div class="col-md-2 status" *ngIf="unaccepted.status">
+        <span tooltip="您已完成了订单，请耐心等待收货！" placement="bottom">等待收货</span>
+      </div>
+      <div class="col-md-2 operate" *ngIf="unaccepted.status">
+        <button routerLink="/index">继续购物</button>
+      </div>
+    </div>
+  </tab>
+</tabset>

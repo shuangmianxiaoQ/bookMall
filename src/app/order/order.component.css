@@ -70,11 +70,18 @@
 
 .list-tbody {
   padding: 10px 0;
+}
+
+.list-tbody>div:not(:first-child) {
   line-height: 54px;
 }
 
 .goods-info {
   text-align: left;
+}
+
+.goods-info>a {
+  cursor: pointer;
 }
 
 .goods-info img {
@@ -83,6 +90,12 @@
 
 .title {
   display: inline-block;
+  width: 80%;
+  cursor: pointer;
+}
+
+.title:hover {
+  color: #e52222;
 }
 
 .list-tfoot {

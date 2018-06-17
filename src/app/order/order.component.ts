@@ -78,10 +78,10 @@ export class OrderComponent implements OnInit {
   }
 
   submitOrder() {
-    const userInfo = JSON.parse(sessionStorage.getItem('userInfo'));
-    if(!userInfo) {
-      alert('用户未登录');
+    if($('.addressInfo>span').html() === '' || $('.receiverInfo>span').html() === '') {
+      alert('请先选择收货地址，再点击下单！');
     } else {
+      const userInfo = JSON.parse(sessionStorage.getItem('userInfo'));
       let nowTimeStamp = String(new Date().getTime());
       let httpOptions = {
         params: new HttpParams().set('uid', userInfo.uid)

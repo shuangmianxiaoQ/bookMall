@@ -23,15 +23,15 @@
       <p>送货清单</p>
       <span routerLink="/cart" class="edit-cart">返回修改购物车</span>
       <div class="row list-thead">
-        <div class="col-md-4">商品信息</div>
+        <div class="col-md-5">商品信息</div>
         <div class="col-md-1">单价</div>
         <div class="col-md-1">数量</div>
         <div class="col-md-2">小计</div>
       </div>
       <div class="row list-tbody" *ngFor="let orderItem of orderLsit">
-        <div class="col-md-4 goods-info">
+        <div class="col-md-5 goods-info">
           <a (click)="jumpToDetail(orderItem.gid)">
-            <img [src]="'assets/'+orderItem.pic">
+            <img [src]="'http://localhost/bookMallPic/'+orderItem.pic">
           </a>
           <p class="title" (click)="jumpToDetail(orderItem.gid)">{{orderItem.title}}</p>
         </div>

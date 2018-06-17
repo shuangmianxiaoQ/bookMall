@@ -4,7 +4,8 @@
       <div class="row">
         <label class="col-md-2 col-form-label">原密码：</label>
         <div class="col-md-6">
-          <input type="password" class="old-pwd" name="oldPwd" [(ngModel)]="oldPwd" autocomplete="off" />
+          <input type="password" class="old-pwd" name="oldPwd" [(ngModel)]="oldPwd" (input)="onInput()" (blur)="checkPwd()" autocomplete="off" />
+          <span [hidden]="isShowTips">输入密码与原密码不一致</span>
         </div>
       </div>
       <div class="row">
@@ -16,7 +17,7 @@
       <div class="row">
         <label class="col-md-2 col-form-label">确认密码：</label>
         <div class="col-md-6">
-          <input type="password" class="confirm-pwd" autocomplete="off" />
+          <input type="password" class="confirm-pwd" name="confirmPwd" [(ngModel)]="confirmPwd" autocomplete="off" />
         </div>
       </div>
       <div class="row">

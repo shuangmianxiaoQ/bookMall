@@ -3,7 +3,7 @@
   <div class="col-md-4" *ngFor="let topSaleItem of topSaleItems">
     <div class="pic">
       <a (click)="jumpToDetail(topSaleItem.href)">
-        <img [src]="'assets/'+topSaleItem.pic" [title]="topSaleItem.title">
+        <img [src]="'http://localhost/bookMallPic/'+topSaleItem.pic" [title]="topSaleItem.title">
       </a>
     </div>
     <div class="txt">

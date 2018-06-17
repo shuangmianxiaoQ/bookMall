@@ -15,7 +15,7 @@
   $result = mysqli_query($conn, $sql);
   $row['picList'] = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
-  $sql = "SELECT * FROM bm_goods_detail WHERE gid=$gid";
+  $sql = "SELECT * FROM bm_goods_detail d,bm_goods g WHERE d.gid=g.gid AND d.gid=$gid";
   $result = mysqli_query($conn, $sql);
   $row['detail'] = mysqli_fetch_all($result, MYSQLI_ASSOC);
 

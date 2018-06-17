@@ -9,13 +9,13 @@
     <div class="col-md-4 preview">
       <div class="spec" *ngIf="goodsPic">
         <a href="">
-          <img [src]="'assets/'+goodsPic[0].md">
+          <img [src]="'http://localhost/bookMallPic/'+goodsPic[0].md">
         </a>
       </div>
       <ul class="spec-list">
         <li *ngFor="let pic of goodsPic">
           <a href="javascript:;" (mouseover)="changePic(pic.md)">
-            <img [src]="'assets/'+pic.xs">
+            <img [src]="'http://localhost/bookMallPic/'+pic.xs">
           </a>
         </li>
       </ul>
@@ -84,7 +84,7 @@
                   <span>产品特色</span>
                 </div>
                 <p>
-                  <img [src]="'assets/'+goodsDetail.goods_features">
+                  <img [src]="'http://localhost/bookMallPic/'+goodsDetail.goods_features">
                 </p>
               </div>
               <div id="detail-tag-id-2">
