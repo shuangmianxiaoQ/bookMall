@@ -16,61 +16,48 @@
         </div>
         <div class="form-field">
           <label for="uname">用户名：</label>
-          <input type="text" id="uname"
-            [(ngModel)]="uname" name="uname"
-            placeholder="请输入用户名"
-            autocomplete="off"
-            (keyup)="onKeyName($event)"
-            (change)="checkName(username.value)"
-            (focus)="onFocusName(username.value)"
-            (blur)="onBlurName()"
-            #username />
-            <span class="msg" [hidden]="isShowNameError">用户名不能为空</span>
-            <div class="msg tip" [hidden]="isShowNameTips">{{showNameTips}}</div>
-            <span class="msg" [hidden]="isCheckNameError">{{checkNameMsg}}</span>
-            <span class="msg success-msg" [hidden]="isCheckNameSuccess">{{checkNameMsg}}</span>
+          <input type="text" id="uname" [(ngModel)]="uname" name="uname" placeholder="请输入用户名" autocomplete="off" (keyup)="onKeyName($event)"
+            (change)="checkName(username.value)" (focus)="onFocusName(username.value)" (blur)="onBlurName()" #username />
+          <span class="msg" [hidden]="isShowNameError">用户名不能为空</span>
+          <div class="msg tip" [hidden]="isShowNameTips">{{showNameTips}}</div>
+          <span class="msg" [hidden]="isCheckNameError">{{checkNameMsg}}</span>
+          <span class="msg success-msg" [hidden]="isCheckNameSuccess">{{checkNameMsg}}</span>
         </div>
         <div class="form-field">
           <label for="upwd">密码：</label>
-          <input type="password" id="upwd"
-            [(ngModel)]="upwd" name="upwd"
-            placeholder="请输入密码"
-            (keyup)="onKeyPwd($event)"
-            (change)="checkPwd(password.value)"
-            (focus)="onFocusPwd(password.value)"
-            (blur)="onBlurPwd()"
-            #password />
-            <span class="msg" [hidden]="isShowPwdError">密码不能为空</span>
-            <div class="msg tip" [hidden]="isShowPwdTips">{{showPwdTips}}</div>
-            <span class="msg" [hidden]="isCheckPwdError">{{checkPwdMsg}}</span>
-            <span class="msg success-msg" [hidden]="isCheckPwdSuccess">{{checkPwdMsg}}</span>
+          <input type="password" id="upwd" [(ngModel)]="upwd" name="upwd" placeholder="请输入密码" (keyup)="onKeyPwd($event)" (change)="checkPwd(password.value)"
+            (focus)="onFocusPwd(password.value)" (blur)="onBlurPwd()" #password />
+          <span class="msg" [hidden]="isShowPwdError">密码不能为空</span>
+          <div class="msg tip" [hidden]="isShowPwdTips">{{showPwdTips}}</div>
+          <span class="msg" [hidden]="isCheckPwdError">{{checkPwdMsg}}</span>
+          <span class="msg success-msg" [hidden]="isCheckPwdSuccess">{{checkPwdMsg}}</span>
         </div>
         <div class="form-field">
           <label for="confirmUpwd">确认密码：</label>
-          <input type="password" id="confirmUpwd"
-            name="confirmUpwd"
-            placeholder="请确认密码"
-            (keyup)="onKeyConfirmPwd()"
-            (change)="checkConfirmPwd(confirmPwd.value, password.value)"
+          <input type="password" id="confirmUpwd" name="confirmUpwd" placeholder="请确认密码" (keyup)="onKeyConfirmPwd()" (change)="checkConfirmPwd(confirmPwd.value, password.value)"
             #confirmPwd />
-            <span class="msg" [hidden]="isCheckConfirmError">两次输入密码不一致</span>
-            <span class="msg success-msg" [hidden]="isCheckConfirmSuccess">两次输入密码一致</span>
+          <span class="msg" [hidden]="isCheckConfirmError">两次输入密码不一致</span>
+          <span class="msg success-msg" [hidden]="isCheckConfirmSuccess">两次输入密码一致</span>
         </div>
         <div class="form-field">
           <label for="email">邮箱：</label>
-          <input type="email" id="email"
-            [(ngModel)]="email" name="email"
-            placeholder="请输入邮箱地址"
-            autocomplete="off"
-            (keyup)="onKeyEmail()"
-            (change)="checkEmail(userEmail.value)"
-            #userEmail />
-            <span class="msg" [hidden]="isShowEmailError">邮箱地址不能为空</span>
-            <span class="msg" [hidden]="isCheckEmailError">{{checkEmailMsg}}</span>
-            <span class="msg success-msg" [hidden]="isCheckEmailSuccess">{{checkEmailMsg}}</span>
+          <input type="email" id="email" [(ngModel)]="email" name="email" placeholder="请输入邮箱地址" autocomplete="off" (keyup)="onKeyEmail()"
+            (change)="checkEmail(userEmail.value)" #userEmail />
+          <span class="msg" [hidden]="isShowEmailError">邮箱地址不能为空</span>
+          <span class="msg" [hidden]="isCheckEmailError">{{checkEmailMsg}}</span>
+          <span class="msg success-msg" [hidden]="isCheckEmailSuccess">{{checkEmailMsg}}</span>
         </div>
         <div class="form-field">
-          <input type="button" value="点击注册" id="btn-register" (click)="userRegister()">
+          <input type="button" value="点击注册" id="btn-register" (click)="userRegister(template)">
+          <ng-template #template>
+            <div class="modal-body text-center">
+              <span>
+                <fa-icon [icon]="['fas', 'check-circle']" size="4x"></fa-icon>
+              </span>
+              <p class="info">注册成功，马上去登陆！</p>
+              <button type="button" class="btn btn-shopping" (click)="ok()">确定</button>
+            </div>
+          </ng-template>
         </div>
       </form>
     </div>

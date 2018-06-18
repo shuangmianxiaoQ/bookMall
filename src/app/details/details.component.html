@@ -8,7 +8,7 @@
     </div>
     <div class="col-md-4 preview">
       <div class="spec" *ngIf="goodsPic">
-        <a href="">
+        <a href="javascript:;">
           <img [src]="'http://localhost/bookMallPic/'+goodsPic[0].md">
         </a>
       </div>
@@ -59,8 +59,17 @@
             <button class="btn-add" (click)="modifyCount(true)">+</button>
           </div>
         </div>
-        <button class="btn btn-danger" (click)="addToCart()">加入购物车</button>
-        <button class="btn btn-secondary" (click)="buy()">立即购买</button>
+        <button class="btn btn-danger" (click)="addToCart(template)">加入购物车</button>
+        <ng-template #template>
+          <div class="modal-body text-center">
+            <span>
+              <fa-icon [icon]="['fas', 'check-circle']" size="4x"></fa-icon>
+            </span>
+            <p>商品已成功加入购物车！</p>
+            <button type="button" class="btn btn-shopping" (click)="goShopping()">继续购物</button>
+            <button type="button" class="btn btn-order" (click)="goCart()">去购物车结算</button>
+          </div>
+        </ng-template>
       </div>
     </div>
     <div class="col-md-11 detail" *ngIf="goodsDetail">
@@ -79,7 +88,7 @@
           </div>
           <div class="detail-content">
             <div class="detail-content-wrap">
-              <div id="detail-tag-id-1">
+              <div id="detail-tag-id-1" *ngIf="goodsDetail.goods_features">
                 <div class="detail-tag">
                   <span>产品特色</span>
                 </div>
@@ -87,35 +96,33 @@
                   <img [src]="'http://localhost/bookMallPic/'+goodsDetail.goods_features">
                 </p>
               </div>
-              <div id="detail-tag-id-2">
+              <div id="detail-tag-id-2" *ngIf="goodsDetail.editor_recommend">
                 <div class="detail-tag">
                   <span>编辑推荐</span>
                 </div>
                 <p>{{goodsDetail.editor_recommend}}</p>
               </div>
-              <div id="detail-tag-id-3">
+              <div id="detail-tag-id-3" *ngIf="goodsDetail.brief_introduction">
                 <div class="detail-tag">
                   <span>内容简介</span>
                 </div>
                 <p>{{goodsDetail.brief_introduction}}</p>
               </div>
-              <div id="detail-tag-id-4">
+              <div id="detail-tag-id-4" *ngIf="goodsDetail.author_introduction">
                 <div class="detail-tag">
                   <span>作者简介</span>
                 </div>
                 <p>{{goodsDetail.author_introduction}}</p>
               </div>
-              <div id="detail-tag-id-5">
+              <div id="detail-tag-id-5" *ngIf="goodsDetail.wonderful_digest">
                 <div class="detail-tag">
                   <span>精彩书摘</span>
                 </div>
                 <div class="digest">{{goodsDetail.wonderful_digest | parseHtml}}</div>
               </div>
             </div>
-            <div class="detail-content-nav"></div>
           </div>
         </tab>
-        <tab heading="售后保障"></tab>
       </tabset>
     </div>
   </div>

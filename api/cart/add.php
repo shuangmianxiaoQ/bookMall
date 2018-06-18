@@ -12,7 +12,7 @@
   if(!$row) {
     $sql = "INSERT INTO bm_shopping_cart VALUES(NULL,$uid,$gid,$count)";
   } else {
-    $sql = "UPDATE bm_shopping_cart SET count=count+1 WHERE uid=$uid AND gid=$gid";
+    $sql = "UPDATE bm_shopping_cart SET count=count+$count WHERE uid=$uid AND gid=$gid";
   }
   $result = mysqli_query($conn, $sql);
   if(!$result) {

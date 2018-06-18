@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef } from '@angular/core';
 import { HttpService } from '../http.service';
 import { HttpParams } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
-
-const userInfo = JSON.parse(sessionStorage.getItem('userInfo'));
+import { BsModalService } from 'ngx-bootstrap/modal';
+import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-details',
@@ -12,6 +13,8 @@ const userInfo = JSON.parse(sessionStorage.getItem('userInfo'));
   providers: [ HttpService ]
 })
 export class DetailsComponent implements OnInit {
+  modalRef: BsModalRef;
+
   goodsDetailUrl: string = `${this.http.baseUrl}goods/goods_detail.php`;
   addCartUrl: string = `${this.http.baseUrl}cart/add.php`;
 
@@ -23,7 +26,9 @@ export class DetailsComponent implements OnInit {
 
   constructor(
     private http: HttpService,
-    private aRoute: ActivatedRoute
+    private aRoute: ActivatedRoute,
+    private modalService: BsModalService,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -60,25 +65,33 @@ export class DetailsComponent implements OnInit {
     }
   }
 
-  addToCart() {
+  addToCart(template: TemplateRef<any>) {
+    const userInfo = JSON.parse(sessionStorage.getItem('userInfo'));
     if(!userInfo) {
       alert('用户未登录');
+      this.router.navigateByUrl('/login');
     } else {
       let httpOptions = {
         params: new HttpParams().set('uid', userInfo.uid).set('gid', this.gid).set('count', this.count)
       };
       this.http.sendGetMethod(this.addCartUrl, httpOptions)
         .subscribe((data: any) => {
-          alert(data.msg);
+          this.openModal(template);
         })
     }
   }
 
-  buy() {
-    if(!userInfo) {
-      alert('用户未登录');
-    } else {
+  openModal(template) {
+    this.modalRef = this.modalService.show(template, { class: 'pay-modal' });
+  }
 
-    }
+  goShopping() {
+    this.modalRef.hide();
+    this.router.navigateByUrl('/index');
+  }
+
+  goCart() {
+    this.modalRef.hide();
+    this.router.navigateByUrl('/cart');
   }
 }

@@ -3,6 +3,7 @@ import { HttpService } from '../http.service';
 import { HttpParams } from '@angular/common/http';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cart',
@@ -23,7 +24,8 @@ export class CartComponent implements OnInit {
 
   constructor(
     private http: HttpService,
-    private modalService: BsModalService
+    private modalService: BsModalService,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -34,6 +36,7 @@ export class CartComponent implements OnInit {
     const userInfo = JSON.parse(sessionStorage.getItem('userInfo'));
     if(!userInfo) {
       alert('用户未登录');
+      this.router.navigateByUrl('/login');
     } else {
       let httpOptions = {
         params: new HttpParams().set('uid', userInfo.uid)

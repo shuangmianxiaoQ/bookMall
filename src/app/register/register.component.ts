@@ -1,7 +1,9 @@
-import { Component, OnInit, AnimationStyles } from '@angular/core';
+import { Component, OnInit, AnimationStyles, TemplateRef } from '@angular/core';
 import { HttpService } from '../http.service';
 import { Router } from '@angular/router';
 import { HttpParams } from '@angular/common/http';
+import { BsModalService } from 'ngx-bootstrap/modal';
+import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 
 @Component({
   selector: 'app-register',
@@ -10,6 +12,13 @@ import { HttpParams } from '@angular/common/http';
   providers: [HttpService]
 })
 export class RegisterComponent implements OnInit {
+  modalRef: BsModalRef;
+  config = {
+    keyboard: false,
+    backdrop: true,
+    ignoreBackdropClick: true
+  }
+
   registerUrl: string = `${this.httpService.baseUrl}user/register.php`;
   checkNameUrl: string = `${this.httpService.baseUrl}user/check_uname.php`;
   checkPwdUrl: string = `${this.httpService.baseUrl}user/check_upwd.php`;
@@ -42,7 +51,8 @@ export class RegisterComponent implements OnInit {
 
   constructor(
     private httpService: HttpService,
-    private router: Router
+    private router: Router,
+    private modalService: BsModalService
   ) { }
 
   ngOnInit() {
@@ -181,7 +191,7 @@ export class RegisterComponent implements OnInit {
       });
   }
 
-  userRegister() {
+  userRegister(template: TemplateRef<any>) {
     if(!(this.isCheckNameError && this.isCheckPwdError && this.isCheckConfirmError && this.isCheckEmailError)) {
       this.isShowRegister = false;
     } else {
@@ -199,9 +209,21 @@ export class RegisterComponent implements OnInit {
           } else if (data.code === 403) {
             this.isShowEmailError = false;
           } else if (data.code === 200) {
-            this.router.navigateByUrl('/login');
+            this.openModal(template);
           }
         });
     }
+  }
+
+  openModal(template) {
+    this.modalRef = this.modalService.show(
+      template,
+      Object.assign(this.config, { class: 'pay-modal' })
+    );
+  }
+
+  ok() {
+    this.modalRef.hide();
+    this.router.navigateByUrl('/login');
   }
 }

@@ -39,9 +39,7 @@ export class MyOrderComponent implements OnInit {
 
   getOrderInfo() {
     const userInfo = JSON.parse(sessionStorage.getItem('userInfo'));
-    if(!userInfo) {
-      alert('用户未登录');
-    } else {
+    if(userInfo) {
       let httpOptions = {
         params: new HttpParams().set('uid', userInfo.uid)
       }

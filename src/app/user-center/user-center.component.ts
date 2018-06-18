@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpService } from '../http.service';
 import { OrderInfoService } from './order-info/order-info.service';
 import { HttpParams } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-center',
@@ -14,17 +15,24 @@ export class UserCenterComponent implements OnInit {
 
   constructor(
     private http: HttpService,
-    private orderInfo: OrderInfoService
+    private orderInfo: OrderInfoService,
+    private router: Router
   ) { }
 
   ngOnInit() {
-    this.getOrderInfo();
+    const userInfo = JSON.parse(sessionStorage.getItem('userInfo'));
+    if(!userInfo) {
+      alert('用户未登录');
+      this.router.navigateByUrl('/login');
+    }
+    // this.getOrderInfo();
   }
 
   getOrderInfo() {
     const userInfo = JSON.parse(sessionStorage.getItem('userInfo'));
     if(!userInfo) {
       alert('用户未登录');
+      this.router.navigateByUrl('/login');
     } else {
       let httpOptions = {
         params: new HttpParams().set('uid', userInfo.uid)

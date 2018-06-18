@@ -27,9 +27,7 @@ export class UserSafetyComponent implements OnInit {
 
   getUserInfo() {
     const userInfo = JSON.parse(sessionStorage.getItem('userInfo'));
-    if(!userInfo) {
-      alert('用户未登录！');
-    } else {
+    if(userInfo) {
       let httpOptions = {
         params: new HttpParams().set('uid', userInfo.uid)
       };

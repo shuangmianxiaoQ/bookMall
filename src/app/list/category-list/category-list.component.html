@@ -1,10 +1,11 @@
 <div id="wrapper">
   <div class="row">
     <div class="col-md-10">
-      <p class="top-tip">全部结果 > <span>共{{totalItems}}条</span></p>
-    </div> 
-    <div class="col-md-10 goods-item"
-      *ngFor="let goodsList of goodsLists">
+      <p class="top-tip">全部结果 >
+        <span>共{{totalItems}}条</span>
+      </p>
+    </div>
+    <div class="col-md-10 goods-item" *ngFor="let goodsList of goodsLists">
       <div class="row">
         <div class="col-md-3">
           <a (click)="jumpToDetail(goodsList.gid)">
@@ -22,19 +23,24 @@
             <span class="publishing">{{goodsList.publishing}}</span>
           </p>
           <div class="introduction">{{goodsList.introduction}}</div>
-          <a class="btn btn-danger btn-sm cart" (click)="addToCart(goodsList.gid)">加入购物车</a>
+          <a class="btn btn-danger btn-sm cart" (click)="addToCart(template, goodsList.gid)">加入购物车</a>
+          <ng-template #template>
+            <div class="modal-body text-center">
+              <span>
+                <fa-icon [icon]="['fas', 'check-circle']" size="4x"></fa-icon>
+              </span>
+              <p>商品已成功加入购物车！</p>
+              <button type="button" class="btn btn-shopping" (click)="goShopping()">继续购物</button>
+              <button type="button" class="btn btn-order" (click)="goCart()">去购物车结算</button>
+            </div>
+          </ng-template>
         </div>
       </div>
     </div>
   </div>
   <div class="row pager">
     <div class="col-md-12">
-      <pagination
-        [totalItems]="totalItems"
-        [itemsPerPage]="itemsPerPage"
-        previousText="上一页"
-        nextText="下一页"
-        (pageChanged)="pageChanged($event)">
+      <pagination [totalItems]="totalItems" [itemsPerPage]="itemsPerPage" previousText="上一页" nextText="下一页" (pageChanged)="pageChanged($event)">
       </pagination>
     </div>
   </div>

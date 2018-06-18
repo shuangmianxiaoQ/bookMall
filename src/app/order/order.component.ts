@@ -34,6 +34,7 @@ export class OrderComponent implements OnInit {
     const userInfo = JSON.parse(sessionStorage.getItem('userInfo'));
     if(!userInfo) {
       alert('用户未登录');
+      this.router.navigateByUrl('/login');
     } else {
       let httpOptions = {
         params: new HttpParams().set('uid', userInfo.uid)
@@ -48,7 +49,7 @@ export class OrderComponent implements OnInit {
   getOrderList() {
     const userInfo = JSON.parse(sessionStorage.getItem('userInfo'));
     if(!userInfo) {
-      alert('用户未登录');
+      this.router.navigateByUrl('/login');
     } else {
       let httpOptions = {
         params: new HttpParams().set('uid', userInfo.uid)
