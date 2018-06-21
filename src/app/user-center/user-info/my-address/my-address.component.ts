@@ -80,8 +80,9 @@ export class MyAddressComponent implements OnInit {
       };
       this.http.sendGetMethod(this.addAddressUrl, httpOptions)
         .subscribe((data: any) => {
-          console.log(JSON.parse(sessionStorage.getItem('userInfo')).uid)
-          console.log(data);
+          this.modal.hide();
+          this.getAddressList();
+          alert(data.msg);
         })
     }
   }
